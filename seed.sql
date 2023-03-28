@@ -29,38 +29,38 @@
 
 INSERT INTO families(family)
 VALUES
--- ('Pinaceae')
--- ('Asteraceae'),
--- ('Geraniaceae'),
--- ('Araceae'),
--- ('Cycadaceae'),
--- ('Caricaceae'),
--- ('Araucariaceae'),
--- ('Fabaceae');
--- ('Asparagaceae'),
--- ('Betulaceae');
+--1 ('Pinaceae')
+--2 ('Asteraceae'),
+--3 ('Geraniaceae'),
+--4 ('Araceae'),
+--5 ('Cycadaceae'),
+--6 ('Caricaceae'),
+--7 ('Araucariaceae'),
+--8 ('Fabaceae');
+--9 ('Asparagaceae'),
+--10 ('Betulaceae');
 
 INSERT INTO plant_list(name, common_name, plant_type_id, family_id)
 VALUES
--- ('Pinus eldarica', 'Afghan Pine', 2, 1),
--- ('Pinus canariensis', 'Canary Island Pine', 2, 1),
--- ('Pinus ponderosa', ' Ponderosa Pine', 2, 1),
--- ('Callendula officinalis', 'Callendula', 3, 2),
+--1 ('Pinus eldarica', 'Afghan Pine', 2, 1),
+--2 ('Pinus canariensis', 'Canary Island Pine', 2, 1),
+--3 ('Pinus ponderosa', ' Ponderosa Pine', 2, 1),
+--4 ('Callendula officinalis', 'Callendula', 3, 2),
 --5 ('Pelargonium x hortorum', 'Geranium', 3, 3),
--- ('Osteospermum fruticosum', 'African Daisy', 3, 2),
--- ('Spathiphyllum clevelandii', 'Peace Lily', 4, 4),
--- ('Zamioculcas zamiifolia', 'ZZ Plant', 4, 4),
--- ('Cycas revoluta', 'Sago Palm', 2, 5),
+--6 ('Osteospermum fruticosum', 'African Daisy', 3, 2),
+--7 ('Spathiphyllum clevelandii', 'Peace Lily', 4, 4),
+--8 ('Zamioculcas zamiifolia', 'ZZ Plant', 4, 4),
+--9 ('Cycas revoluta', 'Sago Palm', 2, 5),
 --10 ('Zamia furfuracea', 'Cardboard Palm', 2, 5),
--- ('Carica papaya', 'Papaya', 2, 6),
--- ('Picea pungens', 'Colorado Spruce', 2, 1),
--- ('Aglaonema commutatum', 'Chinese Evergreen', 4, 4),
--- ('Araucaria heterophylla', 'Norfolk Island Pine', 4, 7),
+--11 ('Carica papaya', 'Papaya', 2, 6),
+--12 ('Picea pungens', 'Colorado Spruce', 2, 1),
+--13 ('Aglaonema commutatum', 'Chinese Evergreen', 4, 4),
+--14 ('Araucaria heterophylla', 'Norfolk Island Pine', 4, 7),
 --15 ('Bauhinia purpurea', 'Orchid Tree', 1, 8);
--- ('Dracaena marginata', 'Dracaena', 4, 9),
--- ('Dracaena draco', 'Dragon Tree', 2, 9),
--- ('Betula pendula', 'Weeping Birch', 1, 10),
--- ('Caesalpinia cacalaco', 'Cascalota', 2, 8),
+--16 ('Dracaena marginata', 'Dracaena', 4, 9),
+--17 ('Dracaena draco', 'Dragon Tree', 2, 9),
+--18 ('Betula pendula', 'Weeping Birch', 1, 10),
+--19 ('Caesalpinia cacalaco', 'Cascalota', 2, 8),
 --20 ('Caesalpinia pulcherrima', 'Red Bird of Paradise', 2, 8);
 
 INSERT INTO pictures(link, plant_id)
