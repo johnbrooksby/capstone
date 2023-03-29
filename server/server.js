@@ -2,14 +2,12 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const path = require('path')
-const cors = require('cors')
 const {PORT} = process.env
 
 app.use(express.json());
-app.use(cors());
 
 //access to controller file
-// const {getpics} = require("./controller/ctrl");
+const {filterFam, getSpecies, getPics} = require("./controller/ctrl");
 
 //static / endpoint for home page
 // app.use(express.static(`${__dirname}/client`))
@@ -46,7 +44,9 @@ app.get('/js', (req, res) => {
     res.sendFile(path.join(__dirname, '/../client/index.js'))
 })
 
-// app.get('/family:id', filterFam)
+app.get('/familyNames', filterFam)
+
+app.get('/search/:species', getSpecies)
 
 app.listen(PORT, () => {
     console.log(`app listening on ${PORT}`)
