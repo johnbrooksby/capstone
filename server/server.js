@@ -7,7 +7,7 @@ const {PORT} = process.env
 app.use(express.json());
 
 //access to controller file
-const {filterFam, getSpecies, getPics} = require("./controller/ctrl");
+const {filterFam, getSpecies, getCommon, getFamily, getPics} = require("./controller/ctrl");
 
 //static / endpoint for home page
 // app.use(express.static(`${__dirname}/client`))
@@ -46,7 +46,9 @@ app.get('/js', (req, res) => {
 
 app.get('/familyNames', filterFam)
 
-app.get('/search/:species', getSpecies)
+app.get('/searchSpecies/:species', getSpecies)
+app.get('/searchCommon/:common', getCommon)
+app.get('/searchFamily/:id', getFamily)
 
 app.listen(PORT, () => {
     console.log(`app listening on ${PORT}`)

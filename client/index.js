@@ -18,9 +18,9 @@ function getData(){
 
 function addToView(dataObj) {
     familyDropDown.textContent = '';
-    let add1 = document.createElement('option')
-    add1.textContent = "---------------";
-    familyDropDown.appendChild(add1)
+    let add = document.createElement('option')
+    add.textContent = "---------------";
+    familyDropDown.appendChild(add)
     
     dataObj.forEach(item => {
         let value = document.createElement('option');
@@ -33,22 +33,38 @@ function addToView(dataObj) {
         familyDropDown.appendChild(value)
         
     })
-    let add2 = document.createElement('option')
-    add2.textContent = "Add a Family";
-    add2.setAttribute("id", 0)
-    familyDropDown.appendChild(add2)
+    // let add2 = document.createElement('option')
+    // add2.textContent = "Add a Family";
+    // add2.setAttribute("id", 0)
+    // familyDropDown.appendChild(add2)
 }
 
 function searchPlant(event) {
     event.preventDefault();
-    let speciesArr = species.value.split(' ')
-    speciesJoin = speciesArr.join('%20')
     // console.log(speciesJoin)
-    if (speciesJoin !== ""){
-        axios.get('/search/' + speciesJoin).then(res => {
+    if (species.value !== ""){
+        let speciesArr = species.value.split(' ')
+        speciesJoin = speciesArr.join('%20')
+        axios.get('/searchSpecies/' + speciesJoin).then(res => {
             console.log(res.data)
             displayPic()
         }).catch(err => console.log(err))
+    } else if(common.value !== ""){
+        let commonArr = common.value.split(' ')
+        commonJoin = commonArr.join('%20')
+        axios.get('/searchCommon/' + commonJoin).then(res => {
+            console.log(res.data)
+            displayPic()
+        }).catch(err => console.log(err))
+    } else if(familyDropDown.value.id !== "---------------"){
+        let id = familyDropDown.value
+        console.log(familyDropDown.value)
+        axios.get('/searchFamily/' + id).then(res => {
+            console.log(res.data)
+            displayPic()
+        }).catch(err => console.log(err))
+    } else {
+        alert("Please enter search criteria")
     }
 }
 
