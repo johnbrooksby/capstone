@@ -68,7 +68,7 @@ a:hover{
 }
 
 main {
-    display: inline;
+    display: flex;
 
 }
 
@@ -104,7 +104,7 @@ main {
 
 #sidebar {
     width: 375px;
-    height: 1200px;
+    height: 1250px;
     position: sticky;
     top: 0px;
     left: 0px;
@@ -119,7 +119,7 @@ h4 {
     margin-left: -10px;
 }
 
-#drop-down {
+#drop-down, #familyAdd {
     width: 150px;
     display: block;
     margin-bottom: 30px;
@@ -131,16 +131,18 @@ input {
     margin-top: 10px;
 }
 
-.navbox {
+button {
+    margin-bottom: 25px;
+}
+
+.navbox, .searchBox {
     width: 500px;
     height: 450px;
     align-items: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* background-color: blue; */
     border: 2px solid green;
-    /* box-shadow: 0px 0px 5px green; */
     box-shadow: 3px 3px 5px green;
     border-radius: 25px;
 }
@@ -158,6 +160,39 @@ h3 {
     color: #6a8d73;
     font-size: 18pt;
     margin-bottom: 7px;
+}
+
+.searchBox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    margin: 20px;
+}
+
+.searchimg {
+    /* margin: 20px; */
+    width: 475px;
+    height: 400px;
+}
+
+#addFamSection {
+    display: flex;
+    height: 50px;
+    width: 335px;
+    justify-content: space-between;
+}
+
+.typeSelect {
+    margin-bottom: 15px;
+}
+
+#newFam {
+    height: 17px;
+}
+
+#familyAdd {
+    height: 22px;
 }
 
 footer {

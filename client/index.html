@@ -9,7 +9,7 @@
 </head>
 <body>
     <header id="home-header">
-        <h1 id="home">Welcome to the Plant ID Database</h1>
+        <h1 id="home">Welcome to John's Plant Database</h1>
         <!-- <section id="nav-bar"> -->
             <!-- <section id="nav-elements">
                 <a href="/index.html">Home</a>
@@ -20,6 +20,7 @@
             </section> -->
         <!-- </section> -->
     </header>
+    <main>
         <section id="sidebar">
             <form id="search">
                 <h4>Choose One:</h4>
@@ -30,6 +31,29 @@
                 <label for="drop-down">Choose a Family</label>
                 <select class="searchfield" id="drop-down" value=""></select>
                 <button>Search</button>
+            </form>
+            <form id="add">
+                <h4>Please fill in all fields to add a new plant:</h4>
+                <label for="speciesAdd">Genus and species</label>
+                <input class="searchfield" id="speciesAdd" placeholder="Species" required/><br>
+                <label for="commonAdd">Common Name</label>
+                <input class="searchfield" id="commonAdd" placeholder="Common Name" required/><br>
+                <label for="imageAdd">Image</label>
+                <input class="searchfield" id="imageAdd" placeholder="Image URL" required/><br>
+                <label for="decid">Choose One:</label><br>
+                <select class="typeSelect" id="decid" required>
+                    <option value=1>Deciduous</option>
+                    <option value=2>Evergreen</option>
+                    <option value=3>Flower</option>
+                    <option value=4>Houseplant</option>
+                </select><br>
+                <label for="familyAdd">Choose a Family or Add New:</label>
+                <section id="addFamSection">
+                    <select class="searchfield" id="familyAdd" required></select>
+                    <input class="greyed" id="newFam" placeholder="Add New"/>
+                </section>
+                <button>Add Plant</button>
+            
             </form>
         </section>
         <section id="searchRes">

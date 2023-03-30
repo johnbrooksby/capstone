@@ -76,9 +76,7 @@ module.exports = {
 
     getFamily: (req, res) => {
         let { id } = req.params
-        console.log('---------')
-        console.log(id)
-        console.log('---------')
+        
         sequelize.query(`
             SELECT plant_list.name AS Name, common_name, pictures.link AS Picture, families.family AS Family
             FROM plant_list
@@ -91,5 +89,31 @@ module.exports = {
             console.log(dbRes[0])
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
+    },
+
+    addNewFam: (req, res) => {
+        console.log(req.body)
+        const { family } = req.body;
+        console.log(family)
+        sequelize.query(`
+            INSERT INTO families (family)
+            VALUES('${family}')
+            RETURNING id;
+        `).then(dbRes => {
+            res.status(200).send(dbRes[0])
+        }).catch(err => console.log(err))
+        
+    },
+
+    addNewSpecies: (req, res) => {
+        const { name, plant_type_id, family_id, common_name } = req.body;
+
+        sequelize.query(`
+            INSERT INTO plant_list(name, plant_type_id, family_id, common_name)
+            VALUES('${name}', ${plant_type_id}, ${family_id}, '${common_name}')
+        `).then(dbRes => {
+            // console.log(dbRes[0])
+            res.status(200).send(dbRes[0])
+        }).catch(err => console.log(err));
     }
 }
