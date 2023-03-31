@@ -27,6 +27,13 @@ function getData(){
     }).catch(err => console.log(err))
 }
 
+function getEvergreens(){
+    axios.get('/evergreens/').then(res => {
+        evergreensArr = res.data
+        addToView(res.data)
+    }).catch(err => console.log(err))
+}
+
 function addToView(dataObj) {
     familyDropDown.textContent = '';
     familyAdd.textContent = '';
@@ -187,7 +194,7 @@ function addSpecies(){
             }).catch(err => console.log(err))
             
         }).catch(err => console.log(err))
-        addALink()}, 2500);
+        addALink()}, 500);
 }
 
 function addALink(){
@@ -196,15 +203,15 @@ function addALink(){
         let plantListArr = []
         axios.get('/speciesList/').then(res => {
             plantListArr = res.data
-            console.log('plantListArr')
-            console.log(plantListArr)
+            // console.log('plantListArr')
+            // console.log(plantListArr)
             for (let i = 0; i < plantListArr.length; i++){
                 if (speciesAdd.value === plantListArr[i].name) {
                     speciesId = plantListArr[i].id
                 }
             }
-            console.log('speciesId')
-            console.log(speciesId)
+            // console.log('speciesId')
+            // console.log(speciesId)
             
             let newLinkBody = {
                 link: imageAdd.value,
@@ -212,22 +219,23 @@ function addALink(){
             }
 
             axios.post('/addImage/', newLinkBody).then(res => {
-                console.log(res.data)
+                // console.log(res.data)
             }).catch(err => console.log(err))
 
-            // let speciesArr = speciesAdd.value.split(' ')
-            // let speciesJoin = speciesArr.join('%20')
-            // axios.get('/returnSpecies/' + speciesJoin).then(res => {
-            //     // console.log(res.data)
-            //     searchRes.innerHTML = '';
-            //     speciesAdd.value = ''
-            //     commonAdd.value = ''
-            //     familyAdd.value = "---------------"
-            //     newFam.value = ''
-            //     displayPic(res.data)
-            // }).catch(err => console.log(err))
+            let speciesArr = speciesAdd.value.split(' ')
+            let speciesJoin = speciesArr.join('%20')
+            axios.get('/returnSpecies/' + speciesJoin).then(res => {
+                // console.log(res.data)
+                searchRes.innerHTML = '';
+                speciesAdd.value = ''
+                commonAdd.value = ''
+                familyAdd.value = "---------------"
+                newFam.value = ''
+                displayPic(res.data)
+            }).catch(err => console.log(err))
         }).catch(err => console.log(err))
-        console.log('Waiting 3 seconds for DB to update')}, 3500);
+        console.log('Waiting 3 seconds for DB to update')}, 750);
+        getData()
 }
         
 

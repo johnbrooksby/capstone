@@ -69,6 +69,7 @@ a:hover{
 
 main {
     display: flex;
+    background-color: #f8faf2;
 
 }
 
@@ -133,6 +134,11 @@ input {
 
 button {
     margin-bottom: 25px;
+}
+
+button:hover {
+    cursor: pointer;
+    scale: 1.03;
 }
 
 .navbox, .searchBox {
@@ -203,4 +209,18 @@ footer {
     bottom: 0px;
     color: #FFE8C2;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#foot {
+    color: #FFE8C2;
+}
+
+#footer-links {
+    width: 40vw;
+    /* margin-right: 75px; */
+    display: flex;
+    justify-content: space-around;
 }
