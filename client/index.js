@@ -13,12 +13,11 @@ let familyAdd = document.getElementById('familyAdd');
 let newFam = document.getElementById('newFam');
 
 let familyArr = []
-let famInput = newFam.value
 
 const baseURL = 'http://localhost:4321';
 
 axios.get('/').then(res => {
-    console.log('')}).catch(err => console.log(err));
+    console.log('Hello world!')}).catch(err => console.log(err));
 
 function getData(){
     axios.get('/familyNames').then(res => {
@@ -67,7 +66,7 @@ function searchPlant(event) {
         // formatTitleOne(species)
         // console.log(species)
         let speciesArr = species.value.split(' ')
-        speciesJoin = speciesArr.join('%20')
+        let speciesJoin = speciesArr.join('%20')
         axios.get('/searchSpecies/' + speciesJoin).then(res => {
             // console.log(res.data)
             searchRes.innerHTML = '';
@@ -76,7 +75,7 @@ function searchPlant(event) {
         }).catch(err => console.log(err))
     } else if(common.value !== ""){
         let commonArr = common.value.split(' ')
-        commonJoin = commonArr.join('%20')
+        let commonJoin = commonArr.join('%20')
         axios.get('/searchCommon/' + commonJoin).then(res => {
             // console.log(res.data)
             searchRes.innerHTML = '';
@@ -85,7 +84,7 @@ function searchPlant(event) {
         }).catch(err => console.log(err))
     } else if(familyDropDown.value !== "---------------"){
         let id = familyDropDown.value
-        console.log(familyDropDown.value)
+        // console.log(familyDropDown.value)
         axios.get('/searchFamily/' + id).then(res => {
             // console.log(res.data)
             searchRes.innerHTML = '';
@@ -112,90 +111,125 @@ function displayPic (dataArr){
 function addPlant2DB(event){
     event.preventDefault()
 
-    
-
     let newFamId = 0
+    // console.log('-----')
+    // console.log(newFam.value)
+    // console.log('-----')
+    // console.log(familyAdd.value)
+    // console.log('-----')
 
     // console.log(familyAdd.value)
-    if (familyAdd.value === "Add a Family") {
+    if (familyAdd.value === "Add a Family" || familyAdd.value === "---------------") {
 
-        // Check the family array to see if the input name to add already exists2
+        // Check the family array to see if the input name to add already exists
         for (let i = 0; i < familyArr.length; i++){
-            if (famInput === familyArr[i].family) {
+            if (newFam.value === familyArr[i].family) {
                 newFamId = familyArr[i].id
                 
             }
-            console.log(famInput)
-            // console.log('------')
-            // console.log(familyArr[i].id)
-            // console.log('------')
-            // console.log(newFamId)
-            // console.log('------')
-            // console.log('------')
-        }
-        if (newFamId = 0){
-            addAFamily()
-        }
-
-        
-    }
-
-    //refresh familyArr
-    // getData()
-        //Once I get updated familyArr, find the id of the input family
-        for (let i = 0; i < familyArr.length; i++){
-            if (famInput === familyArr[i].family) {
-                newFamId = familyArr[i].id
-            }
         }
         // console.log(newFamId)
-
-        let maBod = {
-            name: speciesAdd.value,
-            common_name: commonAdd.value,
-            plant_type_id: type.value,
-            link: imageAdd.value,
-            family: newFamId
-        };
-        // console.log(body)
-        
-        //Now create the new table line, using the family_id, or new family_id as applicable
-        axios.post('/addNewSpecies', maBod).then(res => {
-            console.log(res.data)
-        }).catch(err => console.log(err))
-        // console.log('---------')
-        // console.log(body)
-        
-        
-        // console.log(familyAdd)
-        
-        //Add the new family to the Families table
-        
-        //Get current family table data to determine the ID of the added family
-        // axios.get('/addFamily/').then(res => {
-            
-            
-            //     speciesAdd.value = ""
-            //     commonAdd.value = ""
-            //     imageAdd.value = ""
-            //     familyAdd.value = "---------------"
-            //     newFam.value = ""
-            // }).catch(err => console.log(err));
+        if (newFamId === 0){
+            addAFamily()
+        }
+    } else {
+        for (let i = 0; i < familyArr.length; i++){
+            if (newFam.value === familyArr[i].family) {
+                newFamId = familyArr[i].id
+                
+            }
+        }
+        addSpecies()
+    }
 }
-            
-            
+
 function addAFamily(){
 
-    console.log('---')
-    console.log(famInput)
-    console.log('---')
         let newFamBody = {
-            family: famInput
+            family: newFam.value
         }
-        axios.post('addFamily/', newFamBody).then(res => {
-            console.log(res.data)
+        axios.post('/addFamily/', newFamBody).then(res => {
+            // console.log(res.data)
         }).catch(err => console.log(err))
+    addSpecies()
 }
+
+
+function addSpecies(){
+    let famId = 0
+    setTimeout(() => {
+        
+        axios.get('/familyNames2/').then(res => {
+            familyArr = res.data
+            
+            //Once I get updated familyArr, find the id of the input family
+            for (let i = 0; i < familyArr.length; i++){
+                if (newFam.value === familyArr[i].family) {
+                    famId = familyArr[i].id
+                    // console.log(familyArr[i].id)
+                }
+            }
+            // console.log('addSpecies now')
+            // console.log(famId)
+            
+            let maBod = {
+                name: speciesAdd.value,
+                common_name: commonAdd.value,
+                plant_type_id: type.value,
+                family_id: famId
+            };
+            console.log(maBod)
+            
+            //Now create the new table line, using the family_id, or new family_id as applicable
+            axios.post('/addNewSpecies/', maBod).then(res => {
+                console.log('addNewSpecies res.data:')
+                console.log(res.data)
+            }).catch(err => console.log(err))
+            
+        }).catch(err => console.log(err))
+        addALink()}, 2500);
+}
+
+function addALink(){
+    setTimeout(() => {
+        let speciesId = 0
+        let plantListArr = []
+        axios.get('/speciesList/').then(res => {
+            plantListArr = res.data
+            console.log('plantListArr')
+            console.log(plantListArr)
+            for (let i = 0; i < plantListArr.length; i++){
+                if (speciesAdd.value === plantListArr[i].name) {
+                    speciesId = plantListArr[i].id
+                }
+            }
+            console.log('speciesId')
+            console.log(speciesId)
+            
+            let newLinkBody = {
+                link: imageAdd.value,
+                plant_list_id: +speciesId
+            }
+
+            axios.post('/addImage/', newLinkBody).then(res => {
+                console.log(res.data)
+            }).catch(err => console.log(err))
+
+            // let speciesArr = speciesAdd.value.split(' ')
+            // let speciesJoin = speciesArr.join('%20')
+            // axios.get('/returnSpecies/' + speciesJoin).then(res => {
+            //     // console.log(res.data)
+            //     searchRes.innerHTML = '';
+            //     speciesAdd.value = ''
+            //     commonAdd.value = ''
+            //     familyAdd.value = "---------------"
+            //     newFam.value = ''
+            //     displayPic(res.data)
+            // }).catch(err => console.log(err))
+        }).catch(err => console.log(err))
+        console.log('Waiting 3 seconds for DB to update')}, 3500);
+}
+        
 
 // function formatTitle(str) {
 //     let split = str.split(' ')
