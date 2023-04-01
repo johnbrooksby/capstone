@@ -166,5 +166,21 @@ module.exports = {
         `).then(dbRes => {
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
+    },
+
+    type: (req, res) => {
+        const { id } = req.params
+        // console.log(id)
+        sequelize.query(`
+            SELECT plant_list.name AS Name, pictures.link AS Picture, plant_type.type AS type
+            FROM plant_list
+            JOIN pictures
+            ON plant_list.id = pictures.plant_list_id
+            JOIN plant_type
+            ON plant_type.id = plant_list.plant_type_id
+            WHERE plant_type.type = '${id}';
+        `).then(dbRes => {
+            res.status(200).send(dbRes[0])
+        }).catch(err => console.log(err))
     }
 }

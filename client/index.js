@@ -11,6 +11,15 @@ let type = document.getElementById('decid');
 let imageAdd = document.getElementById('imageAdd');
 let familyAdd = document.getElementById('familyAdd');
 let newFam = document.getElementById('newFam');
+let evergreens = document.getElementById('Evergreen');
+let houseplants = document.getElementById('Houseplant');
+let deciduous = document.getElementById('Deciduous');
+let flowers = document.getElementById('Flower');
+let evergreen2 = document.getElementById('Evergreen2')
+let houseplant2 = document.getElementById('Houseplant2');
+let deciduous2 = document.getElementById('Deciduous2');
+let flower2 = document.getElementById('Flower2');
+
 
 let familyArr = []
 
@@ -76,7 +85,6 @@ function searchPlant(event) {
         let speciesJoin = speciesArr.join('%20')
         axios.get('/searchSpecies/' + speciesJoin).then(res => {
             // console.log(res.data)
-            searchRes.innerHTML = '';
             species.value = ''
             displayPic(res.data)
         }).catch(err => console.log(err))
@@ -85,7 +93,6 @@ function searchPlant(event) {
         let commonJoin = commonArr.join('%20')
         axios.get('/searchCommon/' + commonJoin).then(res => {
             // console.log(res.data)
-            searchRes.innerHTML = '';
             common.value = ""
             displayPic(res.data)
         }).catch(err => console.log(err))
@@ -94,7 +101,6 @@ function searchPlant(event) {
         // console.log(familyDropDown.value)
         axios.get('/searchFamily/' + id).then(res => {
             // console.log(res.data)
-            searchRes.innerHTML = '';
             familyDropDown.value = "---------------";
             displayPic(res.data);
         }).catch(err => console.log(err));
@@ -105,8 +111,8 @@ function searchPlant(event) {
 
 function displayPic (dataArr){
     // console.log(dataArr)
+    searchRes.innerHTML = '';
     dataArr.forEach(element => {
-        
         searchRes.innerHTML += `
             <section class='searchBox'>
             <img class='navimg searchimg' alt='${element.name} pic' src='${element.picture}'/>
@@ -140,12 +146,6 @@ function addPlant2DB(event){
             addAFamily()
         }
     } else {
-        for (let i = 0; i < familyArr.length; i++){
-            if (newFam.value === familyArr[i].family) {
-                newFamId = familyArr[i].id
-                
-            }
-        }
         addSpecies()
     }
 }
@@ -171,7 +171,7 @@ function addSpecies(){
             
             //Once I get updated familyArr, find the id of the input family
             for (let i = 0; i < familyArr.length; i++){
-                if (newFam.value === familyArr[i].family) {
+                if (familyAdd.value === familyArr[i].family || newFam.value === familyArr[i].family) {
                     famId = familyArr[i].id
                     // console.log(familyArr[i].id)
                 }
@@ -194,7 +194,7 @@ function addSpecies(){
             }).catch(err => console.log(err))
             
         }).catch(err => console.log(err))
-        addALink()}, 500);
+        addALink()}, 750);
 }
 
 function addALink(){
@@ -229,12 +229,13 @@ function addALink(){
                 searchRes.innerHTML = '';
                 speciesAdd.value = ''
                 commonAdd.value = ''
+                imageAdd.value = ''
                 familyAdd.value = "---------------"
                 newFam.value = ''
                 displayPic(res.data)
             }).catch(err => console.log(err))
         }).catch(err => console.log(err))
-        console.log('Waiting 3 seconds for DB to update')}, 750);
+        console.log('Waiting 3 seconds for DB to update')}, 1000);
         getData()
 }
         
@@ -258,8 +259,32 @@ function formatTitleOne(str) {
     return str
 }
 
+function searchByType (event){
+    let id = event.target.getAttribute('id')
+    if (id === "Deciduous2") {
+        id = "Deciduous"
+    } else if (id === "Evergreen2"){
+        id = "Evergreen"
+    } else if (id === "Flower2"){
+        id = "Flower"
+    } else if (id === "Houseplant2"){
+        id = "Houseplant"
+    }
+    console.log(event.target)
+    axios.get('/typeSearch/' + id).then(res => {
+        displayPic(res.data)
+    }).catch(err => console.log(err))
+}
+
 getData()
 
 search.addEventListener('submit', searchPlant)
 addPlant.addEventListener('submit', addPlant2DB)
-
+evergreens.addEventListener('click', searchByType)
+deciduous.addEventListener('click', searchByType)
+flowers.addEventListener('click', searchByType)
+houseplants.addEventListener('click', searchByType)
+evergreen2.addEventListener('click', searchByType)
+deciduous2.addEventListener('click', searchByType)
+flower2.addEventListener('click', searchByType)
+houseplant2.addEventListener('click', searchByType)
