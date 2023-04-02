@@ -67,16 +67,16 @@ VALUES
 
 INSERT INTO pictures(link, plant_list_id)
 VALUES
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraOWpleWMzYjdwbm8', 1),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTurabFVLRDZZb2IxQkE', 1),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraenozLUtnTXQwZlk', 2),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraR0Nfb0c3UmJmWWs', 3),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraYnVmYXZyMHIydUU', 3),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTurad1ZFdDE2Vno4RWs', 4),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraRURkeEt0YlZSTm8', 5),
+('https://drive.google.com/uc?export=view&id=1YSbQfhDoX7M5-t5_-JnmHrpNinI3GQve', 1),
+('https://drive.google.com/uc?export=view&id=1ReDIRUmYWlcmK8Wb0aygk5iceWvCnvg_', 1),
+('https://drive.google.com/uc?export=view&id=1Iw1oLcsruvHl2wHthsvzmfWc7J7TPDGe', 2),
+('https://drive.google.com/uc?export=view&id=1a88NP6hGM5R5KSsWNw_DredXa1QhnQqE', 3),
+('https://drive.google.com/uc?export=view&id=1DieNg6CsKJEYpmxNVmeoprj3i5R7MvDZ', 3),
+('https://drive.google.com/uc?export=view&id=1ERkfTxpswKSD_MjaSOY0hAxGYSWT5Yu0', 4),
+('https://drive.google.com/uc?export=view&id=1pssS_orAIau46FYUHNfet0w24EwWjSEx', 5),
 ('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraR0d2MHNyY2ZVTEU', 6),
 ('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraaFY1V3BSaUZFeTA', 7),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraRmpoMXJ5c3FVbkk', 9),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraajNEZTlhRHhBNG8', 10),
+('https://drive.google.com/uc?export=view&id=1aFLQUKsTd1DrhxLxRnFAy-XHJGzopf-K', 9),
+('https://drive.google.com/uc?export=view&id=1iskrnkmTjENrDn5OwZwGvRvGqk0QEypL', 10),
 ('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraWUl1T2hBa3cxUjA', 11);
 

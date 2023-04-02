@@ -58,7 +58,8 @@ module.exports = {
             ON plant_list.id = pictures.plant_list_id
             JOIN families
             ON plant_list.family_id = families.id
-            WHERE plant_list.name = '${species}';
+            WHERE plant_list.name = '${species}'
+            ORDER BY name DESC;
         `).then(dbRes => {
             // console.log(dbRes[0])
             res.status(200).send(dbRes[0])
@@ -77,7 +78,8 @@ module.exports = {
             ON plant_list.id = pictures.plant_list_id
             JOIN families
             ON plant_list.family_id = families.id
-            WHERE plant_list.name = '${species2}';
+            WHERE plant_list.name = '${species2}'
+            ORDER BY name DESC;
         `).then(dbRes => {
             // console.log(dbRes[0])
             res.status(200).send(dbRes[0])
@@ -96,7 +98,8 @@ module.exports = {
             ON plant_list.id = pictures.plant_list_id
             JOIN families
             ON plant_list.family_id = families.id
-            WHERE plant_list.common_name = '${common}';
+            WHERE plant_list.common_name = '${common}'
+            ORDER BY name;
         `).then(dbRes => {
             // console.log(dbRes[0])
             res.status(200).send(dbRes[0])
@@ -113,7 +116,8 @@ module.exports = {
             ON plant_list.id = pictures.plant_list_id
             JOIN families
             ON plant_list.family_id = families.id
-            WHERE families.family = '${id}';
+            WHERE families.family = '${id}'
+            ORDER BY name;
         `).then(dbRes => {
             // console.log(dbRes[0])
             res.status(200).send(dbRes[0])
@@ -178,7 +182,8 @@ module.exports = {
             ON plant_list.id = pictures.plant_list_id
             JOIN plant_type
             ON plant_type.id = plant_list.plant_type_id
-            WHERE plant_type.type = '${id}';
+            WHERE plant_type.type = '${id}'
+            ORDER BY name;
         `).then(dbRes => {
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))

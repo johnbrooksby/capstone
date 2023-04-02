@@ -31,7 +31,6 @@ axios.get('/').then(res => {
 function getData(){
     axios.get('/familyNames').then(res => {
         familyArr = res.data
-        // console.log(familyArr)
         addToView(res.data)
     }).catch(err => console.log(err))
 }
@@ -79,12 +78,9 @@ function searchPlant(event) {
     event.preventDefault();
     
     if (species.value !== ""){
-        // formatTitleOne(species)
-        // console.log(species)
         let speciesArr = species.value.split(' ')
         let speciesJoin = speciesArr.join('%20')
         axios.get('/searchSpecies/' + speciesJoin).then(res => {
-            // console.log(res.data)
             species.value = ''
             displayPic(res.data)
         }).catch(err => console.log(err))
@@ -92,15 +88,12 @@ function searchPlant(event) {
         let commonArr = common.value.split(' ')
         let commonJoin = commonArr.join('%20')
         axios.get('/searchCommon/' + commonJoin).then(res => {
-            // console.log(res.data)
             common.value = ""
             displayPic(res.data)
         }).catch(err => console.log(err))
     } else if(familyDropDown.value !== "---------------"){
         let id = familyDropDown.value
-        // console.log(familyDropDown.value)
         axios.get('/searchFamily/' + id).then(res => {
-            // console.log(res.data)
             familyDropDown.value = "---------------";
             displayPic(res.data);
         }).catch(err => console.log(err));
@@ -110,7 +103,6 @@ function searchPlant(event) {
 }
 
 function displayPic (dataArr){
-    // console.log(dataArr)
     searchRes.innerHTML = '';
     dataArr.forEach(element => {
         searchRes.innerHTML += `
@@ -125,23 +117,15 @@ function addPlant2DB(event){
     event.preventDefault()
 
     let newFamId = 0
-    // console.log('-----')
-    // console.log(newFam.value)
-    // console.log('-----')
-    // console.log(familyAdd.value)
-    // console.log('-----')
-
-    // console.log(familyAdd.value)
+   
     if (familyAdd.value === "Add a Family" || familyAdd.value === "---------------") {
 
         // Check the family array to see if the input name to add already exists
         for (let i = 0; i < familyArr.length; i++){
             if (newFam.value === familyArr[i].family) {
                 newFamId = familyArr[i].id
-                
             }
         }
-        // console.log(newFamId)
         if (newFamId === 0){
             addAFamily()
         }
@@ -156,7 +140,6 @@ function addAFamily(){
             family: newFam.value
         }
         axios.post('/addFamily/', newFamBody).then(res => {
-            // console.log(res.data)
         }).catch(err => console.log(err))
     addSpecies()
 }
@@ -173,11 +156,8 @@ function addSpecies(){
             for (let i = 0; i < familyArr.length; i++){
                 if (familyAdd.value === familyArr[i].family || newFam.value === familyArr[i].family) {
                     famId = familyArr[i].id
-                    // console.log(familyArr[i].id)
                 }
             }
-            // console.log('addSpecies now')
-            // console.log(famId)
             
             let maBod = {
                 name: speciesAdd.value,
@@ -185,7 +165,6 @@ function addSpecies(){
                 plant_type_id: type.value,
                 family_id: famId
             };
-            console.log(maBod)
             
             //Now create the new table line, using the family_id, or new family_id as applicable
             axios.post('/addNewSpecies/', maBod).then(res => {
@@ -203,15 +182,11 @@ function addALink(){
         let plantListArr = []
         axios.get('/speciesList/').then(res => {
             plantListArr = res.data
-            // console.log('plantListArr')
-            // console.log(plantListArr)
             for (let i = 0; i < plantListArr.length; i++){
                 if (speciesAdd.value === plantListArr[i].name) {
                     speciesId = plantListArr[i].id
                 }
             }
-            // console.log('speciesId')
-            // console.log(speciesId)
             
             let newLinkBody = {
                 link: imageAdd.value,
@@ -219,13 +194,11 @@ function addALink(){
             }
 
             axios.post('/addImage/', newLinkBody).then(res => {
-                // console.log(res.data)
             }).catch(err => console.log(err))
 
             let speciesArr = speciesAdd.value.split(' ')
             let speciesJoin = speciesArr.join('%20')
             axios.get('/returnSpecies/' + speciesJoin).then(res => {
-                // console.log(res.data)
                 searchRes.innerHTML = '';
                 speciesAdd.value = ''
                 commonAdd.value = ''
