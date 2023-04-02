@@ -42,8 +42,8 @@ h1 {
     height: 40px;
     position: absolute;
     top: 108px; 
-    border-bottom: 1px solid #f4fdd9;
-    border-top: 1px solid #f4fdd9;
+    /* border-bottom: 1px solid #f4fdd9; */
+    /* border-top: 1px solid #f4fdd9; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,6 +59,8 @@ h1 {
 body {
     background-image: url('https://drive.google.com/uc?export=view&id=1Pb3h8VY4ZeDFCe_giZJ_TaFoyOmiPoaH');
     background-repeat: no-repeat;
+    margin-left: -2px;
+    background-attachment: fixed;
 }
 
 section>a{
@@ -73,7 +75,6 @@ a:hover{
 
 main {
     display: flex;
-    /* background-color: #d3ffba; */
 }
 
 .left {
@@ -148,6 +149,10 @@ input {
     background-color: rgba(0,0,0,0);
     border-bottom: 2px solid #ffe8c2;
 }
+input:valid {
+    background-color: rgba(0,0,0,0);
+    color: #ffe8c2;
+}
 
 ::placeholder {
     color: #ffe8c2;
@@ -193,6 +198,10 @@ button:hover {
     /* box-shadow: 3px 3px 5px #6a8d73; */
     border-radius: 25px;
     border-style: outset;
+}
+
+.searchBox {
+    height: 500px;
 }
 
 #searchRes {
@@ -260,7 +269,7 @@ footer {
     justify-content: center;
     align-items: center;
     margin-left: -2px;
-    border-top: 2px solid #6a8d73;
+    border-top: 1px solid #6a8d73;
 }
 
 footer>a {

@@ -104,11 +104,13 @@ function searchPlant(event) {
 
 function displayPic (dataArr){
     searchRes.innerHTML = '';
+    console.log(dataArr)
     dataArr.forEach(element => {
         searchRes.innerHTML += `
             <section class='searchBox'>
             <img class='navimg searchimg' alt='${element.name} pic' src='${element.picture}'/>
                 <h3>${element.name}</h3>
+                <h3>${element.common_name}<h3>
             </section>`
     })
 }

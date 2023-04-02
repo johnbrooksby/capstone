@@ -52,7 +52,7 @@ module.exports = {
         // console.log(species)
         // console.log('---------')
         sequelize.query(`
-            SELECT plant_list.name AS Name, common_name, pictures.link AS Picture, families.family AS Family
+            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
             FROM plant_list
             JOIN pictures
             ON plant_list.id = pictures.plant_list_id
@@ -72,7 +72,7 @@ module.exports = {
         console.log(species2)
         console.log('---------')
         sequelize.query(`
-            SELECT plant_list.name AS Name, common_name, pictures.link AS Picture, families.family AS Family
+            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
             FROM plant_list
             JOIN pictures
             ON plant_list.id = pictures.plant_list_id
@@ -92,7 +92,7 @@ module.exports = {
         // console.log(common)
         // console.log('---------')
         sequelize.query(`
-            SELECT plant_list.name AS Name, common_name, pictures.link AS Picture, families.family AS Family
+            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
             FROM plant_list
             JOIN pictures
             ON plant_list.id = pictures.plant_list_id
@@ -110,7 +110,7 @@ module.exports = {
         let { id } = req.params
         
         sequelize.query(`
-            SELECT plant_list.name AS Name, common_name, pictures.link AS Picture, families.family AS Family
+            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
             FROM plant_list
             JOIN pictures
             ON plant_list.id = pictures.plant_list_id
@@ -176,7 +176,7 @@ module.exports = {
         const { id } = req.params
         // console.log(id)
         sequelize.query(`
-            SELECT plant_list.name AS Name, pictures.link AS Picture, plant_type.type AS type
+            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, plant_type.type AS type
             FROM plant_list
             JOIN pictures
             ON plant_list.id = pictures.plant_list_id
