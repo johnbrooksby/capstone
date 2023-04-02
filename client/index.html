@@ -11,35 +11,35 @@
 <body>
     <header id="home-header">
         <h1 id="home">Welcome to John's Plant Database</h1>
-        <!-- <section id="nav-bar"> -->
-            <!-- <section id="nav-elements">
-                <a href="/index.html">Home</a>
-                <a href="/evergreens.html">Evergreens</a>
-                <a href="/deciduous.html">Deciduous</a>
-                <a href="/flowers.html">Flowers</a>
-                <a href="/houseplants.html">Houseplants</a>
-            </section> -->
-        <!-- </section> -->
+        <section id="nav-bar">
+            <section id="nav-elements">
+                <a style="text-decoration:none" href="/index.html">Home</a>
+                <a id="Evergreen2">Evergreens</a>
+                <a id="Deciduous2">Deciduous</a>
+                <a id="Flower2">Flowers</a>
+                <a id="Houseplant2">Houseplants</a>
+            </section>
+        </section>
     </header>
     <main>
         <section id="sidebar">
             <form id="search">
                 <h4>Choose One:</h4>
-                <label for="species">Genus and species</label>
+                <label for="species">Genus and species:</label>
                 <input class="searchfield" id="species" placeholder="Species"/><br>
-                <label for="common">Common Name</label>
+                <label for="common">Common Name:</label>
                 <input class="searchfield" id="common" placeholder="Common Name"/><br>
-                <label for="drop-down">Choose a Family</label>
+                <label for="drop-down">Choose a Family:</label>
                 <select class="searchfield" id="drop-down" value=""></select>
                 <button>Search</button>
             </form>
             <form id="add">
-                <h4>Please fill in all fields to add a new picture:</h4>
-                <label for="speciesAdd">Genus and species</label>
+                <h4>Please complete all fields<br>to add a new picture</h4>
+                <label for="speciesAdd">Genus and species:</label>
                 <input class="searchfield" id="speciesAdd" placeholder="Species" required/><br>
-                <label for="commonAdd">Common Name</label>
+                <label for="commonAdd">Common Name:</label>
                 <input class="searchfield" id="commonAdd" placeholder="Common Name" required/><br>
-                <label for="imageAdd">Image</label>
+                <label for="imageAdd">Image:</label>
                 <input class="searchfield" id="imageAdd" placeholder="Image URL" required/><br>
                 <label for="decid">Choose One:</label><br>
                 <select class="typeSelect" id="decid" required>
@@ -77,13 +77,15 @@
     </main>
     <footer>
         <a style="text-decoration:none;" href="https://www.linkedin.com/in/john-brooksby-fullstackdeveloper/" target="_blank"><p id="foot">&#169 2023 John Brooksby</p></a>
-        <section id="footer-links">
+        <p>Background Photo by <a style="color: #ffe8c2;" href="https://unsplash.com/fr/@xteemu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Teemu Paananen</a> on <a style="color: #ffe8c2;" href="https://unsplash.com/photos/OOE4xAnBhKo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </p>
+        <!-- <section id="footer-links">
             <a style="text-decoration:none" href="/index.html">Home</a>
-                <a id="Evergreen2">Evergreens</a>
-                <a id="Deciduous2">Deciduous</a>
-                <a id="Flower2">Flowers</a>
-                <a id="Houseplant2">Houseplants</a>
-        </section>
+            <a id="Evergreen2">Evergreens</a>
+            <a id="Deciduous2">Deciduous</a>
+            <a id="Flower2">Flowers</a>
+            <a id="Houseplant2">Houseplants</a>
+        </section> -->
     </footer>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
