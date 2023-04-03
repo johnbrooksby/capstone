@@ -11,21 +11,6 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 })
 
 module.exports = {
-    // getPics: (req, res) => {
-    //     let plantId = req.body.id
-    //     sequelize.query(`
-    //         SELECT plant_list.name AS plant, plant_list.common_name AS common_name, pictures.link AS link, families.family AS family
-    //         FROM pictures
-    //         JOIN plant_list
-    //         ON pictures.plant_id = plant_list.id
-    //         JOIN families
-    //         ON plant_list.family_id = families.id
-    //         WHERE plant_list.id = ${plantId};
-    //     `).then(dbres => {
-    //         res.status(200).send(dbres)
-    //     }).catch(err => console.log(err));
-    // },
-
     filterFam: (req, res) => {
         sequelize.query(`
             SELECT *
@@ -48,9 +33,6 @@ module.exports = {
 
     getSpecies: (req, res) => {
         let { species } = req.params
-        // console.log('---------')
-        // console.log(species)
-        // console.log('---------')
         sequelize.query(`
             SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
             FROM plant_list
@@ -61,16 +43,12 @@ module.exports = {
             WHERE plant_list.name = '${species}'
             ORDER BY name DESC;
         `).then(dbRes => {
-            // console.log(dbRes[0])
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
     },
     
     getSpecies2: (req, res) => {
         let species2 = req.params.species
-        console.log('---------')
-        console.log(species2)
-        console.log('---------')
         sequelize.query(`
             SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
             FROM plant_list
@@ -81,16 +59,12 @@ module.exports = {
             WHERE plant_list.name = '${species2}'
             ORDER BY name DESC;
         `).then(dbRes => {
-            // console.log(dbRes[0])
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
     },
 
     getCommon: (req, res) => {
         let { common } = req.params
-        // console.log('---------')
-        // console.log(common)
-        // console.log('---------')
         sequelize.query(`
             SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
             FROM plant_list
@@ -106,7 +80,6 @@ module.exports = {
                 common: common
             }
         }).then(dbRes => {
-            // console.log(dbRes[0])
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
     },
@@ -129,15 +102,12 @@ module.exports = {
                 id: id
             }
         }).then(dbRes => {
-            // console.log(dbRes[0])
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
     },
 
     addNewFam: (req, res) => {
-        // console.log(req.body)
         const { family } = req.body;
-        // console.log(family)
         sequelize.query(`
             INSERT INTO families (family)
             VALUES(:family);
@@ -198,7 +168,6 @@ module.exports = {
 
     type: (req, res) => {
         const { id } = req.params
-        // console.log(id)
         sequelize.query(`
             SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, plant_type.type AS type
             FROM plant_list

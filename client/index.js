@@ -106,7 +106,6 @@ function searchPlant(event) {
 function displayPic (dataArr){
     searchRes.innerHTML = '';
     searchRes.classList.add('results')
-    // console.log(dataArr)
     dataArr.forEach(element => {
         searchRes.innerHTML += `
         <section class='searchBox'>
