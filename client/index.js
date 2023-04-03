@@ -132,6 +132,8 @@ function addPlant2DB(event){
         }
         if (newFamId === 0){
             addAFamily()
+        } else {
+            addSpecies()
         }
     } else {
         addSpecies()
@@ -153,7 +155,7 @@ function addSpecies(){
     let famId = 0
     setTimeout(() => {
         
-        axios.get('/familyNames2/').then(res => {
+        axios.get('/familyNames/').then(res => {
             familyArr = res.data
             
             //Once I get updated familyArr, find the id of the input family
@@ -202,7 +204,7 @@ function addALink(){
 
             let speciesArr = speciesAdd.value.split(' ')
             let speciesJoin = speciesArr.join('%20')
-            axios.get('/returnSpecies/' + speciesJoin).then(res => {
+            axios.get('/searchSpecies/' + speciesJoin).then(res => {
                 searchRes.innerHTML = '';
                 speciesAdd.value = ''
                 commonAdd.value = ''
@@ -247,7 +249,6 @@ function searchByType (event){
     } else if (id === "Houseplant2"){
         id = "Houseplant"
     }
-    console.log(event.target)
     axios.get('/typeSearch/' + id).then(res => {
         displayPic(res.data)
     }).catch(err => console.log(err))

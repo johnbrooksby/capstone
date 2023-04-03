@@ -25,23 +25,17 @@
         <section id="sidebar">
             <form id="search">
                 <h4>Choose One:</h4>
-                <!-- <label for="species">Genus and species:</label> -->
-                <input class="searchfield" id="species" placeholder="Genus and species:"/><br>
-                <!-- <label for="common">Common Name:</label> -->
-                <input class="searchfield" id="common" placeholder="Common Name:"/><br>
+                <input class="searchfield" id="species" autocomplete="off" placeholder="Genus and species:"/><br>
+                <input class="searchfield" id="common" autocomplete="off" placeholder="Common Name:"/><br>
                 <label for="drop-down">Choose a Family:</label>
                 <select class="searchfield" id="drop-down" value=""></select>
                 <button>Search</button>
             </form>
             <form id="add">
                 <h4>Please complete all fields<br>to add a new picture</h4>
-                <!-- <label for="speciesAdd">Genus and species:</label> -->
-                <input class="searchfield" id="speciesAdd" placeholder="Genus and species:" required/><br>
-                <!-- <label for="commonAdd">Common Name:</label> -->
-                <input class="searchfield" id="commonAdd" placeholder="Common Name:" required/><br>
-                <!-- <label for="imageAdd">Image:</label> -->
-                <input class="searchfield" id="imageAdd" placeholder="Image URL:" required/><br>
-                <!-- <label for="decid">Choose One:</label><br> -->
+                <input class="searchfield" id="speciesAdd" autocomplete="off" placeholder="Genus and species:" required/><br>
+                <input class="searchfield" id="commonAdd" autocomplete="off" placeholder="Common Name:" required/><br>
+                <input class="searchfield" id="imageAdd" autocomplete="off" placeholder="Image URL:" required/><br>
                 <select class="typeSelect" id="decid" required>
                     <option value=1>Deciduous</option>
                     <option value=2>Evergreen</option>
@@ -51,7 +45,7 @@
                 <label for="familyAdd">Choose a Family or Add New:</label>
                 <section id="addFamSection">
                     <select class="searchfield" id="familyAdd" required></select>
-                    <input class="greyed" id="newFam" placeholder="Add New"/>
+                    <input class="greyed" id="newFam" autocomplete="off" placeholder="Add New"/>
                 </section>
                 <button>Add Plant</button>            
             </form>
@@ -79,13 +73,6 @@
         <a style="text-decoration:none;" href="https://www.linkedin.com/in/john-brooksby-fullstackdeveloper/" target="_blank"><p id="foot">&#169 2023 John Brooksby</p></a>
         <p>Background Photo by <a style="color: #ffe8c2;" href="https://unsplash.com/fr/@xteemu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Teemu Paananen</a> on <a style="color: #ffe8c2;" href="https://unsplash.com/photos/OOE4xAnBhKo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
         </p>
-        <!-- <section id="footer-links">
-            <a style="text-decoration:none" href="/index.html">Home</a>
-            <a id="Evergreen2">Evergreens</a>
-            <a id="Deciduous2">Deciduous</a>
-            <a id="Flower2">Flowers</a>
-            <a id="Houseplant2">Houseplants</a>
-        </section> -->
     </footer>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

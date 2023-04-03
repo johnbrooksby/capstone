@@ -20,17 +20,7 @@ module.exports = {
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
     },
-
-    filterFam2: (req, res) => {
-        sequelize.query(`
-            SELECT *
-            FROM families
-            ORDER BY family;
-        `).then(dbRes => {
-            res.status(200).send(dbRes[0])
-        }).catch(err => console.log(err))
-    },
-
+    
     getSpecies: (req, res) => {
         let { species } = req.params
         sequelize.query(`
@@ -41,22 +31,6 @@ module.exports = {
             JOIN families
             ON plant_list.family_id = families.id
             WHERE plant_list.name = '${species}'
-            ORDER BY name DESC;
-        `).then(dbRes => {
-            res.status(200).send(dbRes[0])
-        }).catch(err => console.log(err))
-    },
-    
-    getSpecies2: (req, res) => {
-        let species2 = req.params.species
-        sequelize.query(`
-            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
-            FROM plant_list
-            JOIN pictures
-            ON plant_list.id = pictures.plant_list_id
-            JOIN families
-            ON plant_list.family_id = families.id
-            WHERE plant_list.name = '${species2}'
             ORDER BY name DESC;
         `).then(dbRes => {
             res.status(200).send(dbRes[0])
