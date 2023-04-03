@@ -98,9 +98,14 @@ module.exports = {
             ON plant_list.id = pictures.plant_list_id
             JOIN families
             ON plant_list.family_id = families.id
-            WHERE plant_list.common_name = '${common}'
+            WHERE plant_list.common_name = :common
             ORDER BY name;
-        `).then(dbRes => {
+        `,
+        {
+            replacements: {
+                common: common
+            }
+        }).then(dbRes => {
             // console.log(dbRes[0])
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
@@ -116,9 +121,14 @@ module.exports = {
             ON plant_list.id = pictures.plant_list_id
             JOIN families
             ON plant_list.family_id = families.id
-            WHERE families.family = '${id}'
+            WHERE families.family = :id
             ORDER BY name;
-        `).then(dbRes => {
+        `,
+        {
+            replacements: {
+                id: id
+            }
+        }).then(dbRes => {
             // console.log(dbRes[0])
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
@@ -130,8 +140,13 @@ module.exports = {
         // console.log(family)
         sequelize.query(`
             INSERT INTO families (family)
-            VALUES('${family}');
-        `).then(dbRes => {
+            VALUES(:family);
+        `,
+        {
+            replacements: {
+                family: family
+            }
+        }).then(dbRes => {
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
         
@@ -142,15 +157,18 @@ module.exports = {
         
         sequelize.query(`
             INSERT INTO plant_list(name, plant_type_id, family_id, common_name)
-            VALUES('${name}', ${plant_type_id}, ${family_id}, '${common_name}');
-
-            `).then(dbRes => {
-                // console.log(dbRes[0])
+            VALUES(:name, :plant_type_id, :family_id, :common_name);
+            `,
+            {
+                replacements: {
+                    name: name,
+                    plant_type_id: plant_type_id,
+                    family_id: family_id,
+                    common_name: common_name
+                }
+            }).then(dbRes => {
                 res.status(200).send(dbRes[0])
             }).catch(err => console.log(err));
-        // SELECT id
-        // FROM plant_list
-        // WHERE name = '${name}';
     },
 
     updatedSpeciesList: (req, res) => {
@@ -166,8 +184,14 @@ module.exports = {
         const { link, plant_list_id } = req.body;
         sequelize.query(`
             INSERT INTO pictures (link, plant_list_id)
-            VALUES ('${link}', ${plant_list_id});
-        `).then(dbRes => {
+            VALUES (:link, :plant_list_id);
+        `,
+        {
+            replacements: {
+                link: link,
+                plant_list_id: plant_list_id                
+            }
+        }).then(dbRes => {
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
     },
@@ -182,9 +206,14 @@ module.exports = {
             ON plant_list.id = pictures.plant_list_id
             JOIN plant_type
             ON plant_type.id = plant_list.plant_type_id
-            WHERE plant_type.type = '${id}'
+            WHERE plant_type.type = :id
             ORDER BY name;
-        `).then(dbRes => {
+        `,
+        {
+            replacements: {
+                id: id
+            }
+        }).then(dbRes => {
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
     }

@@ -72,6 +72,7 @@ function addToView(dataObj) {
     add3.textContent = "Add a Family";
     add3.setAttribute("id", 0)
     familyAdd.appendChild(add3)
+    document.documentElement.scrollTop = 0;
 }
 
 function searchPlant(event) {
@@ -104,15 +105,17 @@ function searchPlant(event) {
 
 function displayPic (dataArr){
     searchRes.innerHTML = '';
-    console.log(dataArr)
+    searchRes.classList.add('results')
+    // console.log(dataArr)
     dataArr.forEach(element => {
         searchRes.innerHTML += `
-            <section class='searchBox'>
-            <img class='navimg searchimg' alt='${element.name} pic' src='${element.picture}'/>
-                <h3>${element.name}</h3>
-                <h3>${element.common_name}<h3>
-            </section>`
+        <section class='searchBox'>
+        <img class='navimg searchimg' alt='${element.name} pic' src='${element.picture}'/>
+        <h3>${element.name}<br>
+        ${element.common_name}</h3>
+        </section>`
     })
+    document.documentElement.scrollTop = 0;
 }
 
 function addPlant2DB(event){
@@ -209,8 +212,8 @@ function addALink(){
                 newFam.value = ''
                 displayPic(res.data)
             }).catch(err => console.log(err))
-        }).catch(err => console.log(err))
-        console.log('Waiting 3 seconds for DB to update')}, 1000);
+        }).catch(err => console.log(err))}, 1000);
+    
         getData()
 }
         
