@@ -20,13 +20,16 @@ let houseplant2 = document.getElementById('Houseplant2');
 let deciduous2 = document.getElementById('Deciduous2');
 let flower2 = document.getElementById('Flower2');
 
-
 let familyArr = []
+
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
 
 const baseURL = 'http://localhost:4321';
 
 axios.get('/').then(res => {
-    console.log('Hello world!')}).catch(err => console.log(err));
+    }).catch(err => console.log(err));
 
 function getData(){
     axios.get('/familyNames').then(res => {
@@ -50,7 +53,6 @@ function addToView(dataObj) {
     familyDropDown.appendChild(add)
     let add2 = document.createElement('option')
     add2.textContent = "---------------";
-    familyDropDown.appendChild(add2)
     familyAdd.appendChild(add2)
     
     dataObj.forEach(item => {
@@ -79,6 +81,13 @@ function searchPlant(event) {
     event.preventDefault();
     
     if (species.value !== ""){
+
+        // Standardize capitalization of scientific name search input
+        let firstLetter = species.value[0].toUpperCase()
+        let remaining = species.value.slice(1, species.value.length)
+        species.value = firstLetter + remaining.toLowerCase()
+
+        // Format for sending as search parameter
         let speciesArr = species.value.split(' ')
         let speciesJoin = speciesArr.join('%20')
         axios.get('/searchSpecies/' + speciesJoin).then(res => {
@@ -86,8 +95,19 @@ function searchPlant(event) {
             displayPic(res.data)
         }).catch(err => console.log(err))
     } else if(common.value !== ""){
-        let commonArr = common.value.split(' ')
-        let commonJoin = commonArr.join('%20')
+
+        // Standardize capitalization of common name search input
+        let split = common.value.split(' ')
+        let titleArr = split.map(word => {
+            let firstLetter = word.charAt(0).toUpperCase()
+            let remaining = word.slice(1, word.length)
+            word = firstLetter + remaining.toLowerCase()
+            return word
+        })
+        let commonJoin = titleArr.join('%20')
+        
+        // let commonArr = common.value.split(' ')
+        // let commonJoin = commonArr.join('%20')
         axios.get('/searchCommon/' + commonJoin).then(res => {
             common.value = ""
             displayPic(res.data)
@@ -141,7 +161,9 @@ function addPlant2DB(event){
 }
 
 function addAFamily(){
-
+    let firstLetter = newFam.value[0].toUpperCase()
+    let remaining = newFam.value.slice(1, newFam.value.length)
+    newFam.value = firstLetter + remaining.toLowerCase()
         let newFamBody = {
             family: newFam.value
         }
@@ -157,7 +179,23 @@ function addSpecies(){
         
         axios.get('/familyNames/').then(res => {
             familyArr = res.data
-            
+
+            // Make species capitalize only first letter of the Genus and all others lower case
+            let firstLetter = speciesAdd.value[0].toUpperCase()
+            let remaining = speciesAdd.value.slice(1, speciesAdd.value.length)
+            speciesAdd.value = firstLetter + remaining.toLowerCase()
+
+            // Make first letter of each word of the common name capitalized and all others lower case
+            let split = commonAdd.value.split(' ')
+            let titleArr = split.map(word => {
+                let firstLetter = word.charAt(0).toUpperCase()
+                let remaining = word.slice(1, word.length)
+                word = firstLetter + remaining.toLowerCase()
+                console.log("word:", word)
+                return word
+            })
+            let commonAddInput = titleArr.join(' ')
+            console.log("commonAddInput:", commonAddInput)
             //Once I get updated familyArr, find the id of the input family
             for (let i = 0; i < familyArr.length; i++){
                 if (familyAdd.value === familyArr[i].family || newFam.value === familyArr[i].family) {
@@ -165,15 +203,15 @@ function addSpecies(){
                 }
             }
             
-            let maBod = {
+            let bodyObj = {
                 name: speciesAdd.value,
-                common_name: commonAdd.value,
+                common_name: commonAddInput,
                 plant_type_id: type.value,
                 family_id: famId
             };
             
             //Now create the new table line, using the family_id, or new family_id as applicable
-            axios.post('/addNewSpecies/', maBod).then(res => {
+            axios.post('/addNewSpecies/', bodyObj).then(res => {
                 console.log('addNewSpecies res.data:')
                 console.log(res.data)
             }).catch(err => console.log(err))
@@ -216,26 +254,6 @@ function addALink(){
         }).catch(err => console.log(err))}, 1000);
     
         getData()
-}
-        
-
-// function formatTitle(str) {
-//     let split = str.split(' ')
-//     let titleArr = split.map(word => {
-//         let firstLetter = word.charAt(0).toUpperCase()
-//         let remaining = word.slice(1, word.length)
-//         word = firstLetter + remaining
-//         return word
-//     })
-//     let title = titleArr.join(' ')
-//     return title
-// }
-
-function formatTitleOne(str) {
-    let firstLetter = str[0].toUpperCase()
-    let remaining = str.slice(1, str.length)
-    str = firstLetter + remaining.toLowerCase()
-    return str
 }
 
 function searchByType (event){
