@@ -49,6 +49,7 @@ body {
     background-repeat: no-repeat;
     margin-left: -2px;
     background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 section>a{

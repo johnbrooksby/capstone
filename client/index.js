@@ -21,6 +21,7 @@ let deciduous2 = document.getElementById('Deciduous2');
 let flower2 = document.getElementById('Flower2');
 
 let familyArr = []
+let evergreensArr = []
 
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);

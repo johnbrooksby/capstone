@@ -22,7 +22,7 @@ module.exports = {
     },
     
     getSpecies: (req, res) => {
-        let { species } = req.params
+        const { species } = req.params
         sequelize.query(`
             SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
             FROM plant_list
@@ -38,7 +38,7 @@ module.exports = {
     },
 
     getCommon: (req, res) => {
-        let { common } = req.params
+        const { common } = req.params
         sequelize.query(`
             SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
             FROM plant_list
@@ -59,7 +59,7 @@ module.exports = {
     },
 
     getFamily: (req, res) => {
-        let { id } = req.params
+        const { id } = req.params
         
         sequelize.query(`
             SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
