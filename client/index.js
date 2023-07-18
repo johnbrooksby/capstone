@@ -107,8 +107,6 @@ function searchPlant(event) {
         })
         let commonJoin = titleArr.join('%20')
         
-        // let commonArr = common.value.split(' ')
-        // let commonJoin = commonArr.join('%20')
         axios.get('/searchCommon/' + commonJoin).then(res => {
             common.value = ""
             displayPic(res.data)
@@ -192,11 +190,10 @@ function addSpecies(){
                 let firstLetter = word.charAt(0).toUpperCase()
                 let remaining = word.slice(1, word.length)
                 word = firstLetter + remaining.toLowerCase()
-                console.log("word:", word)
                 return word
             })
             let commonAddInput = titleArr.join(' ')
-            console.log("commonAddInput:", commonAddInput)
+            
             //Once I get updated familyArr, find the id of the input family
             for (let i = 0; i < familyArr.length; i++){
                 if (familyAdd.value === familyArr[i].family || newFam.value === familyArr[i].family) {
@@ -213,8 +210,6 @@ function addSpecies(){
             
             //Now create the new table line, using the family_id, or new family_id as applicable
             axios.post('/addNewSpecies/', bodyObj).then(res => {
-                console.log('addNewSpecies res.data:')
-                console.log(res.data)
             }).catch(err => console.log(err))
             
         }).catch(err => console.log(err))

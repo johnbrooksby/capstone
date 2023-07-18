@@ -7,7 +7,7 @@ const {PORT} = process.env
 app.use(express.json());
 
 //access to controller file
-const {filterFam, filterFam2, getSpecies, getCommon, getFamily, addNewFam, addNewSpecies, addNewImage, getSpecies2, updatedSpeciesList, type} = require("./controller/ctrl");
+const {filterFam, getSpecies, getCommon, getFamily, addNewFam, addNewSpecies, addNewImage, updatedSpeciesList, type} = require("./controller/ctrl");
 
 
 app.get('/', (req, res) => {
