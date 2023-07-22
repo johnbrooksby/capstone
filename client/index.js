@@ -27,7 +27,7 @@ window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   }
 
-const baseURL = 'http://localhost:4321';
+// const baseURL = 'http://localhost:4321';
 
 axios.get('/').then(res => {
     }).catch(err => console.log(err));
