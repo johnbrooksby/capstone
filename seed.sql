@@ -18,7 +18,7 @@ CREATE TABLE plant_list (
 
 CREATE TABLE pictures (
     id SERIAL PRIMARY KEY,
-    link VARCHAR NOT NULL,
+    pic_link VARCHAR NOT NULL,
     plant_list_id INTEGER REFERENCES plant_list(id)
 );
 
@@ -65,7 +65,7 @@ VALUES
 ('Caesalpinia cacalaco', 'Cascalota', 2, 8),
 ('Caesalpinia pulcherrima', 'Red Bird of Paradise', 2, 8);
 
-INSERT INTO pictures(link, plant_list_id)
+INSERT INTO pictures(pic_link, plant_list_id)
 VALUES
 ('https://drive.google.com/uc?export=view&id=1YSbQfhDoX7M5-t5_-JnmHrpNinI3GQve', 1),
 ('https://drive.google.com/uc?export=view&id=1ReDIRUmYWlcmK8Wb0aygk5iceWvCnvg_', 1),
@@ -74,11 +74,12 @@ VALUES
 ('https://drive.google.com/uc?export=view&id=1DieNg6CsKJEYpmxNVmeoprj3i5R7MvDZ', 3),
 ('https://drive.google.com/uc?export=view&id=1ERkfTxpswKSD_MjaSOY0hAxGYSWT5Yu0', 4),
 ('https://drive.google.com/uc?export=view&id=1pssS_orAIau46FYUHNfet0w24EwWjSEx', 5),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraR0d2MHNyY2ZVTEU', 6),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraaFY1V3BSaUZFeTA', 7),
+('https://drive.google.com/uc?export=view&id=1XriEu8EfNI5O95VN6TcShqHdiExH839X', 6),
+('https://drive.google.com/uc?export=view&id=19qGQV_C8GnP3Nc6i45kg3I32I20kcSjK', 7),
+('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Zamioculcas.jpg/320px-Zamioculcas.jpg', 8),
 ('https://drive.google.com/uc?export=view&id=1aFLQUKsTd1DrhxLxRnFAy-XHJGzopf-K', 9),
 ('https://drive.google.com/uc?export=view&id=1iskrnkmTjENrDn5OwZwGvRvGqk0QEypL', 10),
-('https://drive.google.com/uc?export=view&id=0B5bH67yjTuraWUl1T2hBa3cxUjA', 11),
+('https://drive.google.com/uc?export=view&id=1bxXtgzJ1IfKbJ0WrzmRTVkBxpFJsYtmq', 11),
 ('https://drive.google.com/uc?export=view&id=1y6pfnYZmDYdFnfInEfhHO6lWys8iGa4_', 12),
 ('https://drive.google.com/uc?export=view&id=1UkaNCA44MiFGncuA8EhGIpOe4NokbXln', 13),
 ('https://drive.google.com/uc?export=view&id=1D8-yRkg9ycVVjcKxiAooxm3VBDWUEniQ', 14),

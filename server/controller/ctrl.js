@@ -24,7 +24,7 @@ module.exports = {
     getSpecies: (req, res) => {
         const { species } = req.params
         sequelize.query(`
-            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
+            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.pic_link AS Picture, families.family AS Family
             FROM plant_list
             JOIN pictures
             ON plant_list.id = pictures.plant_list_id
@@ -40,7 +40,7 @@ module.exports = {
     getCommon: (req, res) => {
         const { common } = req.params
         sequelize.query(`
-            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
+            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.pic_link AS Picture, families.family AS Family
             FROM plant_list
             JOIN pictures
             ON plant_list.id = pictures.plant_list_id
@@ -62,7 +62,7 @@ module.exports = {
         const { id } = req.params
         
         sequelize.query(`
-            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, families.family AS Family
+            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.pic_link AS Picture, families.family AS Family
             FROM plant_list
             JOIN pictures
             ON plant_list.id = pictures.plant_list_id
@@ -127,12 +127,12 @@ module.exports = {
     addNewImage: (req, res) => {
         const { link, plant_list_id } = req.body;
         sequelize.query(`
-            INSERT INTO pictures (link, plant_list_id)
-            VALUES (:link, :plant_list_id);
+            INSERT INTO pictures (pic_link, plant_list_id)
+            VALUES (:pic_link, :plant_list_id);
         `,
         {
             replacements: {
-                link: link,
+                pic_link: link,
                 plant_list_id: plant_list_id                
             }
         }).then(dbRes => {
@@ -143,7 +143,7 @@ module.exports = {
     type: (req, res) => {
         const { id } = req.params
         sequelize.query(`
-            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.link AS Picture, plant_type.type AS type
+            SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.pic_link AS Picture, plant_type.type AS type
             FROM plant_list
             JOIN pictures
             ON plant_list.id = pictures.plant_list_id
