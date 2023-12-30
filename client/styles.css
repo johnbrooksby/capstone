@@ -12,9 +12,10 @@ header {
 }
 
 #home-header {
-    height: 110px;
+    height: 20vh;
     display: flex;
     align-items: center;
+    width: 100vw;
 }
 
 h1 {
@@ -30,6 +31,20 @@ h5 {
 
 #home {
     margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    @media (max-width: 1175px) {
+        font-size: 50pt;
+    }
+    @media (max-width: 950px) {
+        font-size: 30pt;
+    }
+    @media (max-width: 600px) {
+        font-size: 20pt;
+    }
+    @media (max-width: 400px) {
+        font-size: 14pt;
+    }
 }
 
 #nav-bar {
@@ -55,6 +70,7 @@ body {
     margin-left: -2px;
     background-attachment: fixed;
     overflow-x: hidden;
+    width: 100vw;
 }
 
 section>a{
