@@ -49,19 +49,36 @@ h5 {
 
 #nav-bar {
     width: 100vw;
-    height: 40px;
+    min-height: 40px;
     position: absolute;
     top: 108px; 
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 1175px){
+        margin-top: -10px;
+    }
+    @media (max-width: 950px){
+        margin-top: -20px;
+    }
+    @media (max-width: 600px){
+        margin-top: -35px;
+    }
 }
 
 #nav-elements {
-    width: 40vw;
+    min-width: 40vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
+    @media (max-width: 425px){
+        min-width: 90vw;
+    }
+    @media (max-width: 340px){
+        min-width: 80vw;
+        gap: 7px;
+    }
 }
 
 body {
@@ -76,6 +93,15 @@ body {
 section>a{
     font-size: 15pt;
     color: #FFE8C2;
+    @media (max-width:485px){
+       font-size: 12pt;
+    }
+    @media (max-width:425px){
+        font-size: 10pt;
+    }
+    @media (max-width:325px){
+        font-size: 8pt;
+    }
 }
 
 a:hover{
