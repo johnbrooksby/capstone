@@ -144,13 +144,47 @@ main {
 }
 
 #sidebar {
-    width: 375px;
+    /* max-width: 375px; */
+    width: 16vw;
     height: 1250px;
     position: relative;
     top: 40px;
     left: 0px;
     padding-left: 30px;
     padding-top: 15px;
+    @media (max-width: 900px){
+
+    }
+}
+
+#search {
+    @media (max-width: 900px){
+        scale: .85;
+        margin-top: -10px;
+    }
+    @media (max-width: 800px){
+        scale: .70;
+        margin-top: -25px;
+    }
+    @media (max-width: 560px){
+        scale: .60;
+        margin-top: -50px;
+    }
+}
+
+#add {
+    @media (max-width:900px){
+        scale: .85;
+        margin-top: -40px;
+    }
+    @media (max-width: 800px){
+        scale: .70;
+        margin-top: -90px;
+    }
+    @media (max-width: 560px){
+        scale: .60;
+        margin-top: -160px;
+    }
 }
 
 h4 {
@@ -285,8 +319,8 @@ h3 {
 }
 
 #addFamSection {
-    display: flex;
-    height: 50px;
+    /* display: flex; */
+    height: 110px;
     width: 335px;
     justify-content: space-between;
 }
