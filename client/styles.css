@@ -330,13 +330,13 @@ button:active {
 
 .searchBox {
     height: 500px;
+    @media (max-width: 1190px){
+        margin-top: -50px;
+    }
 }
 
 #searchRes {
     margin-top: 50px;
-    /* @media (max-width:1415px){
-        scale: .8;
-    } */
     @media (max-width:1190px){
         margin-top: 25px;
     }
