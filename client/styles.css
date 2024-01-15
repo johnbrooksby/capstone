@@ -3,19 +3,21 @@
 }
 
 header {
-    width: 99vw;
-    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -2px;
+    
+    /* overflow-x: hidden; */
 }
 
 #home-header {
-    height: 20vh;
+    scrollbar-width:none;
+    min-height: 20vh;
+    margin-left: -2px;
     display: flex;
     align-items: center;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -33,7 +35,7 @@ h5 {
     margin-bottom: 0px;
     display: flex;
     align-items: center;
-    @media (max-width: 1175px) {
+    /* @media (max-width: 1175px) {
         font-size: 50pt;
     }
     @media (max-width: 950px) {
@@ -45,7 +47,7 @@ h5 {
     }
     @media (max-width: 400px) {
         font-size: 14pt;
-    }
+    } */
 }
 
 #nav-bar {
@@ -56,7 +58,7 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (max-width: 1175px){
+    /* @media (max-width: 1175px){
         margin-top: -10px;
     }
     @media (max-width: 950px){
@@ -67,7 +69,7 @@ h5 {
     }
     @media (max-width:500px){
         margin-top: 10px;
-    }
+    } */
 }
 
 #nav-elements {
@@ -76,28 +78,26 @@ h5 {
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-    @media (max-width: 425px){
+    /* @media (max-width: 425px){
         min-width: 90vw;
     }
     @media (max-width: 340px){
         min-width: 80vw;
         gap: 7px;
-    }
+    } */
 }
 
-body {
-    background-image: url('https://drive.google.com/uc?export=view&id=1j9L-Xrk3B-Wf2v1FZfGHwAMLP8XVd0wW');
-    background-repeat: no-repeat;
+html {
+    background: url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center fixed;
     margin-left: -2px;
-    background-attachment: fixed;
     overflow-x: hidden;
-    width: 100vw;
+    width: 100%;
 }
 
 section>a{
     font-size: 15pt;
     color: #FFE8C2;
-    @media (max-width:485px){
+    /* @media (max-width:485px){
        font-size: 12pt;
     }
     @media (max-width:425px){
@@ -105,7 +105,7 @@ section>a{
     }
     @media (max-width:325px){
         font-size: 8pt;
-    }
+    } */
 }
 
 a:hover{
@@ -115,17 +115,17 @@ a:hover{
 
 main {
     display: flex;
-    @media (max-width: 1055px) {
+    /* @media (max-width: 1055px) {
         flex-direction: column;
-        /* flex-direction: column; */
-        position: relative;
-    }
+        flex-direction: column; */
+        /* position: relative; */
+    /* } */
 }
 
 .left {
     position: relative;
     left: 430px;
-    @media (max-width:1500px){
+    /* @media (max-width:1500px){
         left: 300px;
     }
     @media (max-width:1415px){
@@ -136,13 +136,13 @@ main {
     }
     @media (max-width:1055px){
         position: static;
-    }
+    } */
 }
 
 .right {
     position: absolute;
     right: 50px;
-    @media (max-width:1500px){
+    /* @media (max-width:1500px){
         right: 35px;
     }
     @media (max-width:1415px){
@@ -150,7 +150,7 @@ main {
     }
     @media (max-width:1190px){
         right: 10px;
-    }
+    } */
     /* @media (max-width:1055px){
         position: absolute;
     } */
@@ -159,7 +159,7 @@ main {
 .top-left {
     position: absolute;
     top: 175px;
-    @media (max-width:1190px){
+    /* @media (max-width:1190px){
         top: 150px;
     }
     @media (max-width:1055px){
@@ -168,35 +168,35 @@ main {
     }
     @media (max-width:560px){
         margin-top: 290px;
-    }
+    } */
 }
 
 .top-right {
     position: absolute;
     top: 400px;
-    @media (max-width:1055px){
+    /* @media (max-width:1055px){
         position: static;
         margin-top: -80px;
-    }
+    } */
 }
 
 .bottom-left {
     position: absolute;
     top: 675px;
-    @media (max-width:1055px){
+    /* @media (max-width:1055px){
         position: static;
         margin-top: -80px;
-    }
+    } */
 }
 
 .bottom-right {
     position: absolute;
     top: 900px;
-    @media (max-width:1055px){
+    /* @media (max-width:1055px){
         position: static;
         margin-top: -80px;
         
-    }
+    } */
 }
 
 #sidebar {
@@ -208,15 +208,15 @@ main {
     left: 0px;
     padding-left: 30px;
     padding-top: 15px;
-    @media (max-width: 560px){
+    /* @media (max-width: 560px){
         width: 0px;
         height: 0px;
         gap: 30px;
-    }
+    } */
 }
 
 #search {
-    @media (max-width: 900px){
+    /* @media (max-width: 900px){
         scale: .85;
         margin-top: -10px;
     }
@@ -231,12 +231,11 @@ main {
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
-        /* margin-top: -50px; */
-    }
+    } */
 }
 
 #add {
-    @media (max-width:900px){
+    /* @media (max-width:900px){
         scale: .85;
         margin-top: -40px;
     }
@@ -252,7 +251,7 @@ main {
         gap: 10px;
         flex-wrap: wrap;
         margin-top: 70px;
-    }
+    } */
 }
 
 .familySearch {
@@ -262,9 +261,9 @@ main {
 }
 
 .searchfield {
-    @media (max-width:560px){
+    /* @media (max-width:560px){
         margin-top: -10px;
-    }
+    } */
 }
 
 h4 {
@@ -288,9 +287,9 @@ label {
     display: block;
     margin-bottom: 30px;
     margin-top: 10px;
-    @media (max-width:560px){
+    /* @media (max-width:560px){
         margin-bottom: 0px;
-    }
+    } */
 }
 
 input {
@@ -335,10 +334,10 @@ button {
     border: 1px solid #ffe8c2;
     background-color: rgba(0,0,0,.4);
     color:#ffe8c2;
-    @media (max-width:560px) {
+    /* @media (max-width:560px) {
         margin-bottom: 0px;
         margin-top: 23px;
-    }
+    } */
 }
 
 button:hover {
@@ -362,7 +361,7 @@ button:active {
     border: 2px solid #6a8d73;
     border-radius: 25px;
     border-style: outset;
-    @media (max-width:1500px) {
+    /* @media (max-width:1500px) {
         scale: .9;
     }
     @media (max-width:1415px){
@@ -371,16 +370,16 @@ button:active {
     @media (max-width:1190px){
         scale: .7;
         margin-right: 100px;
-    }
+    } */
     /* @media (max-width:560px){
     } */
 }
 
 #searchRes {
     margin-top: 50px;
-    @media (max-width:1190px){
+    /* @media (max-width:1190px){
         margin-top: 25px;
-    }
+    } */
     
 }
 
@@ -415,9 +414,9 @@ h3 {
     justify-content: center;
     align-items: space-between;
     margin: 20px;
-    @media (max-width: 1190px){
+    /* @media (max-width: 1190px){
         margin-top: -50px;
-    }
+    } */
 }
 
 .searchimg {
