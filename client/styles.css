@@ -117,7 +117,7 @@ main {
     display: flex;
     @media (max-width: 1055px) {
         flex-direction: column;
-        flex-direction: column; */
+        flex-direction: column;
         position: relative;
     }
 }
