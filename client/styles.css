@@ -24,6 +24,23 @@ h1 {
     font-size: 60pt;
     color: #FFE8C2;
     margin-bottom: 40px;
+    @media (max-width: 1175px) {
+        font-size: 50pt;
+        margin-bottom: 30px;
+    }
+    @media (max-width: 950px) {
+        font-size: 30pt;
+        margin-bottom: 20px;
+    }
+    @media (max-width: 600px) {
+        font-size: 20pt;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    @media (max-width: 400px) {
+        font-size: 16pt;
+        margin-bottom: 0px;
+    }
 }
 
 h5 {
@@ -35,19 +52,6 @@ h5 {
     margin-bottom: 0px;
     display: flex;
     align-items: center;
-    @media (max-width: 1175px) {
-        font-size: 50pt;
-    }
-    @media (max-width: 950px) {
-        font-size: 30pt;
-    }
-    @media (max-width: 600px) {
-        font-size: 20pt;
-        margin-left: 10px;
-    }
-    @media (max-width: 400px) {
-        font-size: 14pt;
-    }
 }
 
 #nav-bar {
