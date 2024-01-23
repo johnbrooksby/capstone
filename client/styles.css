@@ -215,7 +215,7 @@ main {
     padding-top: 15px;
     @media (max-width: 1055px){
         width: 0px;
-        height: 55vh;
+        height: 0vh;
         gap: 30px;
     }
 }
@@ -249,7 +249,7 @@ main {
         margin-top: -90px;
     } */
     @media (max-width: 1055px){
-        scale: .85;
+        /* scale: .85; */
         width: 100vw;
         height: 10vh;
         display: flex;
@@ -384,7 +384,7 @@ button:active {
 #searchRes {
     margin-top: 50px;
     @media (max-width:1190px){
-        margin-top: 25px;
+        margin-top: 15px;
     }
     
 }
