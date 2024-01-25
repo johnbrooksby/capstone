@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { CONNECTION_STRING } = process.env;
-const Sequelize = require('sequelize');
+const Sequelize = require('sequelize');  
+
 const sequelize = new Sequelize(CONNECTION_STRING, {
     dialect: 'postgres',
     dialectOptions: {
@@ -12,6 +13,7 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 
 module.exports = {
     filterFam: (req, res) => {
+        
         sequelize.query(`
             SELECT *
             FROM families
@@ -23,6 +25,7 @@ module.exports = {
     
     getSpecies: (req, res) => {
         const { species } = req.params
+
         sequelize.query(`
             SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.pic_link AS Picture, families.family AS Family
             FROM plant_list
@@ -39,6 +42,7 @@ module.exports = {
 
     getCommon: (req, res) => {
         const { common } = req.params
+
         sequelize.query(`
             SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.pic_link AS Picture, families.family AS Family
             FROM plant_list
@@ -82,6 +86,7 @@ module.exports = {
 
     addNewFam: (req, res) => {
         const { family } = req.body;
+
         sequelize.query(`
             INSERT INTO families (family)
             VALUES(:family);
@@ -116,6 +121,7 @@ module.exports = {
     },
 
     updatedSpeciesList: (req, res) => {
+
         sequelize.query(`
             SELECT name, id
             FROM plant_list;
@@ -126,6 +132,7 @@ module.exports = {
         
     addNewImage: (req, res) => {
         const { link, plant_list_id } = req.body;
+
         sequelize.query(`
             INSERT INTO pictures (pic_link, plant_list_id)
             VALUES (:pic_link, :plant_list_id);
@@ -142,6 +149,7 @@ module.exports = {
 
     type: (req, res) => {
         const { id } = req.params
+
         sequelize.query(`
             SELECT plant_list.name AS Name, plant_list.common_name AS common_name, pictures.pic_link AS Picture, plant_type.type AS type
             FROM plant_list
@@ -159,5 +167,6 @@ module.exports = {
         }).then(dbRes => {
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
-    }
+    },
+    sequelize
 }

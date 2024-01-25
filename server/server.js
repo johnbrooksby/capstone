@@ -1,8 +1,10 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+// const {sequelize} = require('./controller/ctrl')
 const path = require('path')
 const {PORT} = process.env
+
 
 app.use(express.json());
 
@@ -46,6 +48,7 @@ app.post('/addFamily', addNewFam)
 app.post('/addNewSpecies', addNewSpecies)
 app.post('/addImage', addNewImage)
 
+// sequelize.sync({force:true})
 app.listen(PORT, () => {
     console.log(`app listening on ${PORT}`)
 });
