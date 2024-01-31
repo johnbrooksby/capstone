@@ -220,8 +220,8 @@ main {
     @media (max-width: 1055px){
         width: 100vw;
         height: 25vh;
-        gap: 30px;
-        top: 30px;
+        gap: 10px;
+        top: 10px;
     }
 }
 
@@ -233,7 +233,7 @@ main {
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
-    }
+}
     /* @media (max-width: 900px){
         scale: .85;
         margin-top: -10px;
