@@ -44,6 +44,11 @@ h1 {
     }
 }
 
+h2 {
+    margin-bottom: 25px;
+    font-size: 26pt;
+}
+
 h5 {
     color: #FFE8C2;
     font-size: 11pt;
@@ -362,9 +367,9 @@ button:active {
     scale: 1.01;
 }
 
-.navbox, .searchBox {
+.navbox{
     width: 500px;
-    height: 450px;
+    height: 500px;
     align-items: center;
     display: flex;
     justify-content: space-between;
