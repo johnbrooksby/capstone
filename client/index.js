@@ -128,7 +128,7 @@ function displayPic (dataArr){
     dataArr.forEach(element => {
         searchRes.innerHTML += `
         // <section class='searchBox'>
-        <section>
+        <section class='navbox'>
         // <img class='navimg searchimg' alt='${element.name} pic' src='${element.picture}'/>
         <img class='navimg' alt='${element.name} pic' src='${element.picture}'/>
         <h3>${element.name}<br>
