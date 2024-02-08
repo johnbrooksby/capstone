@@ -103,7 +103,7 @@ html {
     overflow-x: hidden;
     background-size: cover;
     width: 100%;
-    min-height: 105vh;
+    min-height: 100%;
     overscroll-behavior: none;
 }
 
