@@ -97,7 +97,7 @@ h5 {
     }
 }
 
-html {
+body {
     background: url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center fixed;
     margin-left: -2px;
     overflow-x: hidden;
@@ -112,6 +112,7 @@ section>a{
     color: #FFE8C2;
     @media (max-width:485px){
        font-size: 12pt;
+       padding-bottom: -20px;
     }
     @media (max-width:425px){
         font-size: 10pt;
