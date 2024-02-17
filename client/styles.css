@@ -126,7 +126,7 @@ section>a{
 
 a:hover{
     cursor: pointer;
-    scale: 1.04;
+    /* scale: 1.04; */
 }
 
 main {
@@ -253,17 +253,8 @@ main {
     } */
 }
 
+@media (max-width: 1055px){
 #add {
-    /* @media (max-width:900px){
-        scale: .85;
-        margin-top: -40px;
-    }
-    @media (max-width: 800px){
-        scale: .70;
-        margin-top: -90px;
-    } */
-    @media (max-width: 1055px){
-        /* scale: .85; */
         width: 100vw;
         height: 10vh;
         display: flex;
@@ -387,22 +378,16 @@ button:active {
     @media (max-width:1415px){
         scale: .8;
     }
-    @media (max-width:1190px){
-        scale: .7;
-        margin-right: 100px;
-    }
     /* @media (max-width:560px){
     } */
 }
 
 #searchRes {
     margin-top: 50px;
+    margin-left: 15px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    @media (max-width:1190px){
-        margin-top: 250px;
-    }
 }
 
 .results {
@@ -411,10 +396,7 @@ button:active {
     width: 84vw;
     height: auto;
     /* gap: 10px; */
-    @media (max-width: 1190px){
-        width: 100vw;
-        /* margin-top: auto; */
-    }
+    /* margin-top: auto; */
 }
 
 .navimg {
@@ -442,10 +424,6 @@ h3 {
     justify-content: center;
     align-items: space-between;
     margin: 20px;
-    @media (max-width: 1190px){
-        position: static;
-        /* margin-top: -50px; */
-    }
 }
 
 .searchimg {
@@ -503,4 +481,21 @@ footer>a {
     width: 40vw;
     display: flex;
     justify-content: space-around;
+}
+
+@media (max-width:1190px){
+    .navbox{
+        scale: .7;
+        margin-right: 100px;
+    }
+    #searchRes {
+        margin-top: 250px;
+    }
+    .results {
+        width: 100vw;
+    }
+    .searchBox{
+        position: static;
+    }
+
 }
