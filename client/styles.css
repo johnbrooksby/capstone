@@ -148,9 +148,6 @@ main {
     @media (max-width:1415px){
         left: 250px;
     }
-    @media (max-width:1190px){
-        left: 175px;
-    }
     @media (max-width:1055px){
         position: static;
         left: unset;
@@ -166,9 +163,6 @@ main {
     @media (max-width:1415px){
         right: 20px;
     }
-    @media (max-width:1190px){
-        right: 10px;
-    }
     /* @media (max-width:1055px){
         position: absolute;
     } */
@@ -177,9 +171,6 @@ main {
 .top-left {
     position: absolute;
     top: 175px;
-    @media (max-width:1190px){
-        top: 150px;
-    }
     @media (max-width:1055px){
         position: static;
         margin-top: 25px;
@@ -220,7 +211,7 @@ main {
 #sidebar {
     /* max-width: 375px; */
     width: 16vw;
-    height: 1250px;
+    min-height: 100vh;
     position: relative;
     top: 40px;
     left: 0px;
@@ -384,10 +375,11 @@ button:active {
 
 #searchRes {
     margin-top: 50px;
+    margin-bottom: 75px;
     margin-left: 15px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 }
 
 .results {
@@ -497,5 +489,13 @@ footer>a {
     .searchBox{
         position: static;
     }
-
+    .top-left {
+        top: 150px;
+    }
+    .left {
+        left: 175px;
+    }
+    .right {
+        right: 10px;
+    }
 }
