@@ -25,20 +25,12 @@ h1 {
     font-size: 60pt;
     color: #FFE8C2;
     margin-bottom: 40px;
-    @media (max-width: 1175px) {
-        font-size: 50pt;
-        margin-bottom: 30px;
-    }
-    @media (max-width: 950px) {
-        font-size: 30pt;
-        margin-bottom: 20px;
-    }
-    @media (max-width: 600px) {
+    @media (max-width:600px) {
         font-size: 20pt;
         margin-left: 10px;
         margin-bottom: 10px;
     }
-    @media (max-width: 400px) {
+    @media (max-width:400px) {
         font-size: 16pt;
         margin-bottom: 0px;
     }
@@ -68,13 +60,7 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (max-width: 1175px){
-        margin-top: -10px;
-    }
-    @media (max-width: 950px){
-        margin-top: -10px;
-    }
-    @media (max-width: 600px){
+    @media (max-width:600px){
         margin-top: 0px;
     }
     @media (max-width:500px){
@@ -88,10 +74,10 @@ h5 {
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-    @media (max-width: 425px){
+    @media (max-width:425px){
         min-width: 90vw;
     }
-    @media (max-width: 340px){
+    @media (max-width:340px){
         min-width: 80vw;
         gap: 7px;
     }
@@ -132,81 +118,9 @@ a:hover{
 main {
     display: flex;
     height: fit-content;
-    @media (max-width: 1055px) {
-        flex-direction: column;
-        flex-direction: column;
-        position: relative;
-    }
 }
 
-/* .left {
-    position: relative;
-    left: 430px;
-    
-    @media (max-width:1415px){
-        left: 250px;
-    }
-    @media (max-width:1055px){
-        position: static;
-        left: unset;
-    }
-} */
-
-/* .right {
-    position: absolute;
-    right: 50px;
-    @media (max-width:1500px){
-        right: 35px;
-    }
-    @media (max-width:1415px){
-        right: 20px;
-    }
-    @media (max-width:1055px){
-        position: absolute;
-    }
-} */
-
-/* .top-left {
-    position: absolute;
-    top: 175px;
-    @media (max-width:1055px){
-        position: static;
-        margin-top: 25px;
-    }
-    @media (max-width:560px){
-        margin-top: 290px;
-    }
-} */
-
-/* .top-right {
-    position: absolute;
-    top: 400px;
-    @media (max-width:1055px){
-        position: static;
-        margin-top: -80px;
-    }
-} */
-
-/* .bottom-left {
-    position: absolute;
-    top: 675px;
-    @media (max-width:1055px){
-        position: static;
-        margin-top: -80px;
-    }
-} */
-
-/* .bottom-right {
-    position: absolute;
-    top: 900px;
-    @media (max-width:1055px){
-        position: static;
-        margin-top: -80px;
-    }
-} */
-
 #sidebar {
-    /* max-width: 375px; */
     width: 16vw;
     min-height: 100vh;
     position: relative;
@@ -214,42 +128,6 @@ main {
     left: 0px;
     padding-left: 30px;
     padding-top: 15px;
-    @media (max-width: 1055px){
-        width: 100vw;
-        height: 25vh;
-        gap: 10px;
-        top: 10px;
-    }
-}
-
-#search {
-    @media (max-width: 1055px){
-        /* scale: .85; */
-        height: 10vh;
-        width: 100vw;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-}
-    /* @media (max-width: 900px){
-        scale: .85;
-        margin-top: -10px;
-    }
-    @media (max-width: 800px){
-        scale: .70;
-        margin-top: -25px;
-    } */
-}
-
-@media (max-width: 1055px){
-#add {
-        width: 100vw;
-        height: 10vh;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 115px;
-    }
 }
 
 .familySearch {
@@ -360,9 +238,6 @@ button:active {
     border: 2px solid #6a8d73;
     border-radius: 25px;
     border-style: outset;
-    @media (max-width:1415px){
-        scale: .8;
-    }
     /* @media (max-width:560px){
     } */
 }
@@ -475,6 +350,11 @@ footer>a {
     }
 }
 
+@media (max-width:1415px){
+    .navbox{
+        scale: .8;
+}}
+
 @media (max-width:1190px){
     .navbox{
         scale: .7;
@@ -497,5 +377,59 @@ footer>a {
     }
     .right {
         right: 10px;
+    }
+}
+
+@media (max-width:1175px){
+    h1 {
+        font-size: 50pt;
+        margin-bottom: 30px;
+    }
+
+    #nav-bar {
+        margin-top: -10px;
+    }
+}
+
+@media (max-width:1055px){
+    main {
+        flex-direction: column;
+        flex-direction: column;
+        position: relative;
+    }
+
+    #sidebar {
+        width: 100vw;
+        height: 25vh;
+        gap: 10px;
+        top: 10px;
+    }
+
+    #search {
+        height: 10vh;
+        width: 100vw;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    #add {
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 115px;
+    }
+}
+
+@media (max-width:950px){
+    h1 {
+        font-size: 30pt;
+        margin-bottom: 20px;
+    }
+
+    #nav-bar {
+        margin-top: -10px;
     }
 }
