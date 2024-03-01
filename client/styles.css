@@ -320,15 +320,6 @@ footer > a {
   .searchBox {
     position: static;
   }
-  .top-left {
-    top: 150px;
-  }
-  .left {
-    left: 175px;
-  }
-  .right {
-    right: 10px;
-  }
 }
 
 @media (max-width: 1175px) {
@@ -336,7 +327,6 @@ footer > a {
     font-size: 50pt;
     margin-bottom: 30px;
   }
-
   #nav-bar {
     margin-top: -10px;
   }
@@ -345,17 +335,14 @@ footer > a {
 @media (max-width: 1055px) {
   main {
     flex-direction: column;
-    flex-direction: column;
     position: relative;
   }
-
   #sidebar {
     width: 100vw;
     height: 25vh;
     gap: 10px;
     top: 10px;
   }
-
   #search {
     height: 10vh;
     width: 100vw;
@@ -363,7 +350,6 @@ footer > a {
     gap: 10px;
     flex-wrap: wrap;
   }
-
   #add {
     width: 100vw;
     height: 10vh;
@@ -379,7 +365,6 @@ footer > a {
     font-size: 30pt;
     margin-bottom: 20px;
   }
-
   #nav-bar {
     margin-top: -10px;
   }
@@ -391,7 +376,6 @@ footer > a {
     margin-left: 10px;
     margin-bottom: 10px;
   }
-
   #nav-bar {
     margin-top: 0px;
   }
@@ -401,22 +385,17 @@ footer > a {
   #nav-bar {
     margin-top: 10px;
   }
-
   .searchfield {
     margin-top: -10px;
   }
-
   h4 {
     font-size: 12pt;
     margin-left: -20px;
     width: 100%;
   }
-
-  #drop-down,
-  #familyAdd {
+  #drop-down, #familyAdd {
     margin-bottom: 0px;
   }
-
   button {
     margin-bottom: 0px;
     margin-top: 23px;
@@ -434,7 +413,6 @@ footer > a {
   #nav-elements {
     min-width: 90vw;
   }
-
   section > a {
     font-size: 10pt;
   }
@@ -452,7 +430,6 @@ footer > a {
     min-width: 80vw;
     gap: 7px;
   }
-
   section > a {
     font-size: 8pt;
   }
