@@ -25,11 +25,6 @@ h1 {
     font-size: 60pt;
     color: #FFE8C2;
     margin-bottom: 40px;
-    @media (max-width:600px) {
-        font-size: 20pt;
-        margin-left: 10px;
-        margin-bottom: 10px;
-    }
     @media (max-width:400px) {
         font-size: 16pt;
         margin-bottom: 0px;
@@ -60,12 +55,6 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (max-width:600px){
-        margin-top: 0px;
-    }
-    @media (max-width:500px){
-        margin-top: 10px;
-    }
 }
 
 #nav-elements {
@@ -136,22 +125,11 @@ main {
     /* margin-left: 30px; */
 }
 
-.searchfield {
-    @media (max-width:560px){
-        margin-top: -10px;
-    }
-}
-
 h4 {
     margin-bottom: 10px;
     margin-left: -10px;
     color: #ffe8c2;
     font-size: 16pt;
-    @media (max-width:560px){
-        font-size: 12pt;
-        margin-left: -20px;
-        width: 100%;
-    }
 }
 
 label {
@@ -164,9 +142,6 @@ label {
     display: block;
     margin-bottom: 30px;
     margin-top: 10px;
-    @media (max-width:560px){
-        margin-bottom: 0px;
-    }
 }
 
 input {
@@ -211,10 +186,6 @@ button {
     border: 1px solid #ffe8c2;
     background-color: rgba(0,0,0,.4);
     color:#ffe8c2;
-    @media (max-width:560px) {
-        margin-bottom: 0px;
-        margin-top: 23px;
-    }
 }
 
 button:hover {
@@ -238,8 +209,6 @@ button:active {
     border: 2px solid #6a8d73;
     border-radius: 25px;
     border-style: outset;
-    /* @media (max-width:560px){
-    } */
 }
 
 #searchRes {
@@ -431,5 +400,42 @@ footer>a {
 
     #nav-bar {
         margin-top: -10px;
+    }
+}
+
+@media (max-width:600px){
+    h1 {
+        font-size: 20pt;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    
+    #nav-bar {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width:560px){
+    #nav-bar {
+        margin-top: 10px;
+    }
+
+    .searchfield {
+        margin-top: -10px;
+    }
+
+    h4 {
+        font-size: 12pt;
+        margin-left: -20px;
+        width: 100%;
+    }
+
+    #drop-down, #familyAdd {
+        margin-bottom: 0px;
+    }
+
+    button {
+        margin-bottom: 0px;
+        margin-top: 23px;
     }
 }
