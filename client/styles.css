@@ -69,7 +69,6 @@ body {
   background-position: center center;
   margin-left: -2px;
   overflow-x: hidden;
-  background-size: cover;
   width: 100vw;
   height: 100lvh;
   overscroll-behavior: none;
@@ -301,9 +300,9 @@ footer > a {
   .navbox {
     scale: 0.9;
   }
-  body{
+  /* body{
     background-size: auto;
-  }
+  } */
 }
 
 @media only screen and (max-width: 1415px) {
