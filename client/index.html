@@ -9,83 +9,84 @@
     <link rel="stylesheet" href="/css">
 </head>
 <body>
-    <!-- <div class="backgroundImg"></div> -->
-    <header id="home-header">
-        <h1 id="home">Welcome to the Plant Database</h1>
-        <section id="nav-bar">
-            <section id="nav-elements">
-                <a style="text-decoration:none" href="/index.html">Home</a>
-                <a id="Evergreen2">Evergreens</a>
-                <a id="Deciduous2">Deciduous</a>
-                <a id="Flower2">Flowers</a>
-                <a id="Houseplant2">Houseplants</a>
-            </section>
-        </section>
-    </header>
-    <main>
-        <section id="sidebar">
-            <form id="search">
-                <h4>Choose One:</h4>
-                <input class="searchfield" id="species" autocomplete="off" placeholder="Genus and species:"/>
-                <!-- <br> -->
-                <input class="searchfield" id="common" autocomplete="off" placeholder="Common Name:"/>
-                <br>
-                <div class="familySearch">
-                    <label for="drop-down">Choose a Family:</label>
-                    <select class="searchfield" id="drop-down" value=""></select>
-                </div>
-                <button>Search</button>
-            </form>
-            <form id="add">
-                <h4>Please complete all fields to add a new picture</h4>
-                <input class="searchfield" id="speciesAdd" autocomplete="off" placeholder="Genus and species:" required/><br>
-                <input class="searchfield" id="commonAdd" autocomplete="off" placeholder="Common Name:" required/><br>
-                <input class="searchfield" id="imageAdd" autocomplete="off" placeholder="Image URL:" required/><br>
-                <select class="typeSelect" id="decid" required>
-                    <option value=1>Deciduous</option>
-                    <option value=2>Evergreen</option>
-                    <option value=3>Flower</option>
-                    <option value=4>Houseplant</option>
-                </select><br>
-                <label for="familyAdd">Choose a Family or Add New:</label>
-                <section id="addFamSection">
-                    <select class="searchfield" id="familyAdd" required></select>
-                    <input class="greyed" id="newFam" autocomplete="off" placeholder="Add New Family"/>
+    <!-- <div class="backgroundImg"> -->
+        <header id="home-header">
+            <h1 id="home">Welcome to the Plant Database</h1>
+            <section id="nav-bar">
+                <section id="nav-elements">
+                    <a style="text-decoration:none" href="/index.html">Home</a>
+                    <a id="Evergreen2">Evergreens</a>
+                    <a id="Deciduous2">Deciduous</a>
+                    <a id="Flower2">Flowers</a>
+                    <a id="Houseplant2">Houseplants</a>
                 </section>
-                <!-- <button>Add Plant</button>             -->
-                <h5>--This submit button has temporarily been removed--</h5>
-            </form>
-        </section>
-        <section id="searchRes">
-            <!-- <a><section class="navbox left top-left"> -->
-            <a><section class="navbox">
-            <img id="Evergreen" class="navimg" alt="evergreen pic" src="https://myplantpictures.s3.us-west-1.amazonaws.com/plants/IMG_2913(1).JPG"/>
-                <h2>Evergreens</h2>
-            </section></a><br>
-            <!-- <a><section class="navbox right top-right"> -->
-            <a><section class="navbox">
-                <img id='Deciduous' class="navimg" alt="deciduous pic" src="https://www.toddsmariettatreeservices.com/wp-content/uploads/tree-covered-in-ice-and-snow.jpeg"/>
-                <h2>Deciduous</h2>            
-            </section></a><br>
-            <!-- <a><section class="navbox left bottom-left"> -->
-            <a><section class="navbox">
-                <img id='Flower' class="navimg" alt="flower pic" src="https://myplantpictures.s3.us-west-1.amazonaws.com/plants/pelargonium.png"/>
-                <h2>Flowers</h2>
-            </section></a><br>
-            <!-- <a><section class="navbox right bottom-right"> -->
-            <a><section class="navbox">
-                <img id='Houseplant' class="navimg" alt="houseplant pic" src="https://costafarms.com/cdn/shop/files/DSC03638-Edit--cream.jpg?v=1694800191"/>
-                <h2>Houseplants</h2>
-            </section></a>
-        </section>
-    </main>
-    <footer>
-        <a style="text-decoration:none;" href="https://www.linkedin.com/in/john-brooksby-fullstackdeveloper/" target="_blank"><p id="foot">&#169 2023 John Brooksby</p></a>
-        <p>Background Photo by <a style="color: #ffe8c2;" href="https://unsplash.com/fr/@xteemu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Teemu Paananen</a> on <a style="color: #ffe8c2;" href="https://unsplash.com/photos/OOE4xAnBhKo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-        </p>
-    </footer>
-    <script> function scrollWin() {  window.scrollTo(0, 0);} </script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/js"></script>
+            </section>
+        </header>
+        <main>
+            <section id="sidebar">
+                <form id="search">
+                    <h4>Choose One:</h4>
+                    <input class="searchfield" id="species" autocomplete="off" placeholder="Genus and species:"/>
+                    <!-- <br> -->
+                    <input class="searchfield" id="common" autocomplete="off" placeholder="Common Name:"/>
+                    <br>
+                    <div class="familySearch">
+                        <label for="drop-down">Choose a Family:</label>
+                        <select class="searchfield" id="drop-down" value=""></select>
+                    </div>
+                    <button>Search</button>
+                </form>
+                <form id="add">
+                    <h4>Please complete all fields to add a new picture</h4>
+                    <input class="searchfield" id="speciesAdd" autocomplete="off" placeholder="Genus and species:" required/><br>
+                    <input class="searchfield" id="commonAdd" autocomplete="off" placeholder="Common Name:" required/><br>
+                    <input class="searchfield" id="imageAdd" autocomplete="off" placeholder="Image URL:" required/><br>
+                    <select class="typeSelect" id="decid" required>
+                        <option value=1>Deciduous</option>
+                        <option value=2>Evergreen</option>
+                        <option value=3>Flower</option>
+                        <option value=4>Houseplant</option>
+                    </select><br>
+                    <label for="familyAdd">Choose a Family or Add New:</label>
+                    <section id="addFamSection">
+                        <select class="searchfield" id="familyAdd" required></select>
+                        <input class="greyed" id="newFam" autocomplete="off" placeholder="Add New Family"/>
+                    </section>
+                    <!-- <button>Add Plant</button>             -->
+                    <h5>--This submit button has temporarily been removed--</h5>
+                </form>
+            </section>
+            <section id="searchRes">
+                <!-- <a><section class="navbox left top-left"> -->
+                    <a><section class="navbox">
+                        <img id="Evergreen" class="navimg" alt="evergreen pic" src="https://myplantpictures.s3.us-west-1.amazonaws.com/plants/IMG_2913(1).JPG"/>
+                        <h2>Evergreens</h2>
+                    </section></a><br>
+                    <!-- <a><section class="navbox right top-right"> -->
+                        <a><section class="navbox">
+                            <img id='Deciduous' class="navimg" alt="deciduous pic" src="https://www.toddsmariettatreeservices.com/wp-content/uploads/tree-covered-in-ice-and-snow.jpeg"/>
+                            <h2>Deciduous</h2>            
+                        </section></a><br>
+                        <!-- <a><section class="navbox left bottom-left"> -->
+                            <a><section class="navbox">
+                                <img id='Flower' class="navimg" alt="flower pic" src="https://myplantpictures.s3.us-west-1.amazonaws.com/plants/pelargonium.png"/>
+                                <h2>Flowers</h2>
+                            </section></a><br>
+                            <!-- <a><section class="navbox right bottom-right"> -->
+                                <a><section class="navbox">
+                                    <img id='Houseplant' class="navimg" alt="houseplant pic" src="https://costafarms.com/cdn/shop/files/DSC03638-Edit--cream.jpg?v=1694800191"/>
+                                    <h2>Houseplants</h2>
+                                </section></a>
+                            </section>
+                        </main>
+                        <footer>
+                            <a style="text-decoration:none;" href="https://www.linkedin.com/in/john-brooksby-fullstackdeveloper/" target="_blank"><p id="foot">&#169 2023 John Brooksby</p></a>
+                            <p>Background Photo by <a style="color: #ffe8c2;" href="https://unsplash.com/fr/@xteemu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Teemu Paananen</a> on <a style="color: #ffe8c2;" href="https://unsplash.com/photos/OOE4xAnBhKo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+                            </p>
+                        </footer>
+                        <script> function scrollWin() {  window.scrollTo(0, 0);} </script>
+                        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                        <script src="/js"></script>
+                    <!-- </div> -->
 </body>
 </html>
