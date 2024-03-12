@@ -32,6 +32,7 @@ window.onbeforeunload = function () {
 axios.get('/').then(res => {
     }).catch(err => console.log(err));
 
+//Retrieve all family names from database
 function getData(){
     axios.get('/familyNames').then(res => {
         familyArr = res.data
@@ -39,6 +40,7 @@ function getData(){
     }).catch(err => console.log(err))
 }
 
+//Retrieve evergreens from database
 function getEvergreens(){
     axios.get('/evergreens/').then(res => {
         evergreensArr = res.data
@@ -159,6 +161,7 @@ function addPlant2DB(event){
     }
 }
 
+//Add a family name to the database
 function addAFamily(){
     let firstLetter = newFam.value[0].toUpperCase()
     let remaining = newFam.value.slice(1, newFam.value.length)
@@ -171,7 +174,7 @@ function addAFamily(){
     addSpecies()
 }
 
-
+//Add a Species name with common name to database
 function addSpecies(){
     let famId = 0
     setTimeout(() => {
@@ -194,7 +197,7 @@ function addSpecies(){
             })
             let commonAddInput = titleArr.join(' ')
             
-            //Once I get updated familyArr, find the id of the input family
+            //Once familyArr is updated, find the id of the input family
             for (let i = 0; i < familyArr.length; i++){
                 if (familyAdd.value === familyArr[i].family || newFam.value === familyArr[i].family) {
                     famId = familyArr[i].id
@@ -216,6 +219,7 @@ function addSpecies(){
         addALink()}, 750);
 }
 
+//Load species names and see if image link matches existing name before creating a new name with link attached
 function addALink(){
     setTimeout(() => {
         let speciesId = 0
@@ -252,6 +256,7 @@ function addALink(){
         getData()
 }
 
+//Return search queries by plant type
 function searchByType (event){
     let id = event.target.getAttribute('id')
     if (id === "Deciduous2") {
